@@ -1,8 +1,7 @@
 import * as React from "react";
 import { Text, View, StyleSheet } from "react-native";
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { NavigationContainer } from '@react-navigation/native';
-
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { NavigationContainer } from "@react-navigation/native";
 
 // import { createButtonNavigator } from "@react-navigation/bottom-tabs";
 // import Ionicons from "react-native-vector-icons/Ionicons";
@@ -24,25 +23,25 @@ function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        {/* <Stack.Screen 
-          name="SignIn" 
-          component={SignIn} 
-          options={{ 
-            headerShown : false
-          }}
-        />
-        <Stack.Screen 
-          name="SignUp" 
-          component={SignUp} 
-          options={{ 
-            headerShown : false
+        {/* <Stack.Screen
+          name="SignIn"
+          component={SignIn}
+          options={{
+            headerShown: false,
           }}
         /> */}
-        <Stack.Screen 
-          name="NavigationScreen" 
-          component={NavigationScreen} 
-          options={{ 
-            headerShown : false
+        <Stack.Screen
+          name="SignUp"
+          component={SignUp}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="NavigationScreen"
+          component={NavigationScreen}
+          options={{
+            headerShown: false,
           }}
         />
       </Stack.Navigator>

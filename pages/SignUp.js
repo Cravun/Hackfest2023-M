@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import { View, TextInput, Button, StyleSheet, Text, Alert } from "react-native";
+import { auth } from "../firebase";
+import { useNavigation, useRoute } from "@react-navigation/native";
 
 const SignUp = () => {
+  const navigation = useNavigation();
+  const route = useRoute();
+
   const EMAIL_REGEX = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
   const PASSWORD_REGEX = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
-  const NAME_REGEX = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
 
   const [inputValues, setInputValues] = useState({
-    name: "",
     email: "",
     password: "",
     confirmPassword: "",
@@ -21,10 +24,6 @@ const SignUp = () => {
   };
 
   const handleSubmit = () => {
-    if (!NAME_REGEX.test(inputValues.name)) {
-      Alert.alert("Invalid Name", "Please enter a valid name");
-      return;
-    }
     if (!EMAIL_REGEX.test(inputValues.email)) {
       Alert.alert("Invalid Email", "Please enter a valid email address");
       return;
@@ -40,22 +39,20 @@ const SignUp = () => {
       Alert.alert("Passwords do not match", "Please enter matching passwords");
       return;
     }
-    Alert.alert("Success", "You have successfully signed up");
+    auth
+      .createUserWithEmailAndPassword(inputValues.email, inputValues.password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        Alert.alert("Success", "Account created successfully");
+        navigation.navigate("NavigationScreen", { screen: "NavigationScreen" });
+      })
+      .catch((error) => alert(error.message));
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text2}>Create Account </Text>
-      <View>
-        <Text style={styles.text1}>Name</Text>
-        <TextInput
-          style={styles.input}
-          placeholder=""
-          onChangeText={(text) => handleInputChange("name", text)}
-          value={inputValues.name}
-          autoCapitalize="words"
-        />
-      </View>
+      <Text style={styles.text2}>Welcome to SAGIP!</Text>
+
       <View>
         <Text style={styles.text1}>Email</Text>
         <TextInput
@@ -100,12 +97,22 @@ const styles = StyleSheet.create({
     alignItems: "center",
     padding: 20,
   },
+  text1: {
+    fontSize: 20,
+    fontWeight: "600",
+  },
   input: {
-    width: "100%",
-    borderWidth: 1,
-    borderColor: "#ccc",
+    width: 300,
+    height: 48,
+    marginBottom: 20,
     padding: 10,
-    marginVertical: 10,
+    backgroundColor: "#D9D9D9",
+    borderWidth: 1,
+    borderColor: "#D9D9D9",
+  },
+  text2: {
+    fontSize: 32,
+    fontWeight: "bold",
   },
 });
 
