@@ -7,18 +7,37 @@ export default function Donate() {
       <View style={{ paddingHorizontal: 20 }}>
         <Text style={{ fontSize: 25, paddingBottom: 10 }}>Donate</Text>
 
-        <TouchableOpacity>
+        
         <View
           style={{
             alignItems: "center", justifyContent: "center",
-            height: 180, width: 320, borderStyle: "dashed",
-            borderRadius: 8, borderWidth: 0.5, borderColor: "tomato",
+            height: 190, width: 320,
+            borderRadius: 8, borderWidth: 0.5, borderColor: "gray",
           }}
         >
-          <Text style={{ fontSize: 20, paddingBottom: 10, color: "gray" }}>Donate Now</Text>
+          <Image style={{ width: 40, height: 40 }}
+          source={require("../assets/bandage.png")}></Image>
+
+          <Text style={{fontSize: 18, paddingVertical: 10, color: "#2E5C65",
+            fontWeight:"bold", }}>
+            No application form...yet!</Text>
+
+          <Text style={{fontSize: 10, paddingBottom: 10,paddingHorizontal: 55, textAlign: "center",}}>
+           It's time to take part in helping people in need and
+           start your heroic adventurer</Text>
+
+           <TouchableOpacity>
+              <View style={{ alignItems: "center", justifyContent: "center",
+            height: 40, width: 150, borderRadius: 8, backgroundColor: "#DD4438",
+              }}>
+                <Text style={{fontSize: 15, color: "#fff",}}>
+                  Apply for donation</Text> 
+              </View>
+           </TouchableOpacity>
+
         </View>
-        </TouchableOpacity>
         
+
         <View
           style={{
             alignItems: "center",
@@ -35,7 +54,8 @@ export default function Donate() {
       <View style={{ flexDirection: "column", }}>
         <View style={{ width: "100%", height: 100, borderWidth: 0.3,
                       flexDirection: "row",}}>
-          <View style={{height: 100, width: 100, backgroundColor:"gray", paddingHorizontal: 20 }}/>
+          <View style={{height: 80, width: 80, borderRadius: 12, justifyContent: "center",
+                    margin: 10,backgroundColor:"gray", paddingHorizontal: 20 }}/>
           <View style={{flexDirection: "column", justifyContent: "center", paddingHorizontal: 20}}>
             <Text style={styles1.setFontSizeOne}>Your Past Donation</Text>
             <Text style={styles1.setFontSizeZero}>Details</Text>
@@ -46,7 +66,8 @@ export default function Donate() {
         <View style={{ width: "100%", height: 20 }}></View>
         <View style={{ width: "100%", height: 100, borderWidth: 0.3,
                       flexDirection: "row",}}>
-          <View style={{height: 100, width: 100, backgroundColor:"gray", paddingHorizontal: 20 }}/>
+          <View style={{height: 80, width: 80, borderRadius: 12, justifyContent: "center",
+                    margin: 10,backgroundColor:"gray", paddingHorizontal: 20 }}/>
           <View style={{flexDirection: "column", justifyContent: "center", paddingHorizontal: 20}}>
             <Text style={styles1.setFontSizeOne}>Your Past Donation</Text>
             <Text style={styles1.setFontSizeZero}>Details</Text>
