@@ -29,9 +29,16 @@ export default function Dashboard() {
           onPress = {() => navigation.navigate("Donate",{
               // "userID": route.params.userID
           })}>
+            <View style={DonationButton.Container1}>
+            <Image
+              style={{ width: 35, height: 35 }}
+              source={require("../assets/RequestBlood.png")}
+            />
           <Text style = {styles.applyButtonText}>I want to donate</Text>
+          </View>
         </TouchableOpacity>
-
+        
+        <TouchableOpacity>
           <View style={DonationButton.Container2}>
             <Image
               style={{ width: 35, height: 35 }}
@@ -39,6 +46,7 @@ export default function Dashboard() {
             />
             <Text style={DonationButton.Button1}>I need Blood</Text>
           </View>
+        </TouchableOpacity>
         </View>
 
         <Text style={(styles.setFontSizeTwo, styles.setColor)}>Meet Ana</Text>
