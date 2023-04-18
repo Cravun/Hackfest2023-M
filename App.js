@@ -10,10 +10,11 @@ import { Text, View, StyleSheet } from "react-native";
 // import SignIn from "./pages/SignIn";
 // import SignUp from "./pages/SignUp";
 //import Dashboard from "./pages/Dashboard";
-import Donate from "./pages/Donate";
+//import Donate from "./pages/Donate";
+import Profile from "./pages/Profile";
 
 function App() {
-  return <Donate />;
+  return <Profile />;
 }
 export default App;
 // Path: App.js

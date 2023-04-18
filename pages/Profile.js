@@ -1,28 +1,41 @@
 import React from "react";
 import { StyleSheet, Text, Linking, Button, View, Image } from "react-native";
 
-export default function Donate() {
+export default function Profile() {
   return (
-    <View style={{ paddingTop: 50, backgroundColor: "#fff", flex: 1 }}>
+    <View style={{ paddingTop: 50, flex: 1, }}>
       <View style={{ paddingHorizontal: 20 }}>
-        <Text style={{ fontSize: 25, paddingBottom: 10 }}>Donate</Text>
+        <Text style={[styles1.setFontSizeThree,{paddingBottom: 10}]}>Profile</Text>
 
         <View
           style={{
-            alignItems: "center", justifyContent: "center",
-            height: 180, width: 320, borderStyle: "dashed",
-            borderRadius: 8, borderWidth: 0.5, borderColor: "tomato",
+            alignItems: "center", justifyContent: "center", flexDirection: "column",
           }}
         >
-          <Text style={{ fontSize: 20, paddingBottom: 10, color: "gray" }}>Donate Now</Text>
-        </View>
-
-        <View
+            <View
           style={{
-            alignItems: "center",
-            justifyContent: "center",
-            height: 50,
-            width: 320,
+            height: 100, width: 100, borderRadius: 100, backgroundColor: "gray",
+          }}/>
+          <Text style={[styles1.setFontSizeThree, {paddingVertical: 10,}]}>
+            First Name Last Name</Text>
+          <Text style={styles1.setFontSizeOne}>Location</Text>
+        </View>
+        
+        <View>
+        <Text style={[styles1.setFontSizeTwo,{paddingBottom: 5, paddingTop: 10}]}>Badges</Text>
+            <View style={{flexDirection: "row"}}>
+                <View style={{height: 50, width: 50, backgroundColor: "gray",
+                borderRadius: 50, marginHorizontal: 5}}/>
+                <View style={{height: 50, width: 50, backgroundColor: "gray",
+                borderRadius: 50, marginHorizontal: 5}}/>
+                <View style={{height: 50, width: 50, backgroundColor: "gray",
+                borderRadius: 50, marginHorizontal: 5}}/>
+            </View>
+
+        </View>
+        
+        <View style={{ alignItems: "center", justifyContent: "center",
+            height: 20, width: 320,
           }}
         />
 
@@ -33,7 +46,7 @@ export default function Donate() {
       <View style={{ flexDirection: "column", }}>
         <View style={{ width: "100%", height: 100, borderWidth: 0.3,
                       flexDirection: "row",}}>
-          <View style={{height: 100, width: 100, backgroundColor:"gray", paddingHorizontal: 20 }}/>
+          <View style={{height: 100, width: 100, color:"red", paddingHorizontal: 20 }}/>
           <View style={{flexDirection: "column", justifyContent: "center", paddingHorizontal: 20}}>
             <Text style={styles1.setFontSizeOne}>Your Past Donation</Text>
             <Text style={styles1.setFontSizeZero}>Details</Text>
@@ -44,7 +57,7 @@ export default function Donate() {
         <View style={{ width: "100%", height: 20 }}></View>
         <View style={{ width: "100%", height: 100, borderWidth: 0.3,
                       flexDirection: "row",}}>
-          <View style={{height: 100, width: 100, backgroundColor:"gray", paddingHorizontal: 20 }}/>
+          <View style={{height: 100, width: 100, color:"red", paddingHorizontal: 20 }}/>
           <View style={{flexDirection: "column", justifyContent: "center", paddingHorizontal: 20}}>
             <Text style={styles1.setFontSizeOne}>Your Past Donation</Text>
             <Text style={styles1.setFontSizeZero}>Details</Text>
@@ -52,28 +65,17 @@ export default function Donate() {
           </View>
           
         </View>
-        <View style={{ width: "100%", height: 80 }}></View>
+        <View style={{ width: "100%", height: 25}}></View>
       </View>
 
       <View
         style={{
-          width: "100%",
-          flex: 1,
-          paddingTop: 5,
-          flexDirection: "row",
-          justifyContent: "space-around",
-          borderWidth: 0.5,
-          shadowOpacity: 1,
-        }}
-      >
-        <View
-          style={{
-            alignItems: "center",
-            justifyContent: "center",
-            height: 40,
-            width: 80,
-          }}
-        >
+          width: "100%", flex: 1, paddingTop: 5, flexDirection: "row",
+          justifyContent: "space-around", borderWidth: 0.5, shadowOpacity: 1,}}>
+
+        <View style={{alignItems: "center", justifyContent: "center",
+            height: 40,width: 80,}}>
+
           <Text style={{ color: "red" }}>Home</Text>
         </View>
 
