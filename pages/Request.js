@@ -47,7 +47,7 @@ export default function Request() {
             height: 40, width: 150, borderRadius: 8, backgroundColor: "#2E5C65",
               }}>
                 <Text style={{fontSize: 15, color: "#fff",}}>
-                  Apply for donation</Text> 
+                  Apply for request</Text> 
               </View>
            </TouchableOpacity>
 

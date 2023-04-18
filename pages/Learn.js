@@ -2,6 +2,8 @@ import React from "react";
 import { StyleSheet, Text, Linking, Button, ScrollView,View, Image, TouchableOpacity } from "react-native";
 import AccountSetting from "./AccountSetting";
 import { useNavigation, useRoute } from "@react-navigation/native";
+import DonationKnowledge from "./DonationKnowledge";
+import RequestKnowledge from "./RequestKnowledge";
 
 export default function Learn() {
   const navigation = useNavigation();
@@ -41,7 +43,7 @@ export default function Learn() {
            Start with essential information and benefits on
            blood donation.</Text>
 
-           <TouchableOpacity>
+           <TouchableOpacity onPress={() => navigation.navigate(DonationKnowledge)}>
               <View style={{ alignItems: "center", justifyContent: "center",
             height: 30, width: 200, borderRadius: 8, backgroundColor: "#DD4438",
               }}>
@@ -72,9 +74,10 @@ export default function Learn() {
             <Image style={{ width: 290, height: 10, borderRadius: 8,}}
           source={require("../assets/ProgressBar.png")}></Image>
           <Text style={{fontSize: 10, paddingVertical: 10,paddingHorizontal: 55, textAlign: "center",}}>
-           Lorem Ipsum.</Text>
+          Start with essential information and benefits on
+           blood request.</Text>
 
-           <TouchableOpacity>
+           <TouchableOpacity onPress={() => navigation.navigate(RequestKnowledge)}>
               <View style={{ alignItems: "center", justifyContent: "center",
             height: 30, width: 200, borderRadius: 8, backgroundColor: "#DD4438",
               }}>

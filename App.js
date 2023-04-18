@@ -15,6 +15,8 @@ import NavigationScreen from "./pages/NavigationScreen";
 import DonatorMap from "./pages/donation/DonatorMap";
 import BloodDonationStart from "./pages/donation/BloodDonationStart";
 import DonorForm from "./pages/donation/DonorForm";
+import RequestKnowledge from "./pages/RequestKnowledge";
+import DonationKnowledge from "./pages/DonationKnowledge";
 
 //import Donate from "./pages/Donate";
 import Profile from "./pages/Profile";
@@ -79,6 +81,20 @@ function App() {
         <Stack.Screen
           name="DonorForm"
           component={DonorForm}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="DonationKnowledge"
+          component={DonationKnowledge}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="RequestKnowledge"
+          component={RequestKnowledge}
           options={{
             headerShown: false,
           }}
