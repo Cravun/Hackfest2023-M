@@ -10,6 +10,7 @@ import { NavigationContainer } from "@react-navigation/native";
 // import { Request } from "./Request";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
+import AccountSetting from "./pages/AccountSetting";
 import NavigationScreen from "./pages/NavigationScreen";
 
 //import Donate from "./pages/Donate";
@@ -47,6 +48,13 @@ function App() {
         <Stack.Screen
           name="Profile"
           component={Profile}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="AccountSetting"
+          component={AccountSetting}
           options={{
             headerShown: false,
           }}

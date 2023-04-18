@@ -10,7 +10,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
-import Profile from "./Profile";
+import AccountSetting from "./AccountSetting";
 
 export default function Dashboard() {
   const navigation = useNavigation();
@@ -28,7 +28,7 @@ export default function Dashboard() {
           source={require("../assets/SAGIPLogo.png")}/>
           </View>
 
-          <TouchableOpacity onPress={() => navigation.navigate(Profile)}>
+          <TouchableOpacity onPress={() => navigation.navigate(AccountSetting)}>
             <View style={{ alignItems: "flex-end", height: 40, width: 40,
                         borderRadius: 40, backgroundColor: "gray"}}>
             </View>

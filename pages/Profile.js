@@ -1,9 +1,9 @@
 import React from "react";
-import { StyleSheet, Text, Linking, Button, View, Image } from "react-native";
+import { StyleSheet, Text, Linking, Button, ScrollView,View, Image } from "react-native";
 
 export default function Profile() {
   return (
-    <View style={{ paddingTop: 50, flex: 1, }}>
+    <ScrollView style={{ paddingTop: 50, flex: 1, }}>
       <View style={{ paddingHorizontal: 20 }}>
         <Text style={[styles1.setFontSizeThree,{paddingBottom: 10}]}>Profile</Text>
 
@@ -65,54 +65,10 @@ export default function Profile() {
           </View>
           
         </View>
-        <View style={{ width: "100%", height: 25}}></View>
+        <View style={{ width: "100%", height: 75}}></View>
       </View>
 
-      <View
-        style={{
-          width: "100%", flex: 1, paddingTop: 5, flexDirection: "row",
-          justifyContent: "space-around", borderWidth: 0.5, shadowOpacity: 1,}}>
-
-        <View style={{alignItems: "center", justifyContent: "center",
-            height: 40,width: 80,}}>
-
-          <Text style={{ color: "red" }}>Home</Text>
-        </View>
-
-        <View
-          style={{
-            alignItems: "center",
-            justifyContent: "center",
-            height: 40,
-            width: 80,
-          }}
-        >
-          <Text style={{ color: "red" }}>Donate</Text>
-        </View>
-
-        <View
-          style={{
-            alignItems: "center",
-            justifyContent: "center",
-            height: 40,
-            width: 80,
-          }}
-        >
-          <Text style={{ color: "red" }}>Request</Text>
-        </View>
-
-        <View
-          style={{
-            alignItems: "center",
-            justifyContent: "center",
-            height: 40,
-            width: 80,
-          }}
-        >
-          <Text style={{ color: "red" }}>Learn</Text>
-        </View>
-      </View>
-    </View>
+    </ScrollView>
   );
 }
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, Linking, Button, View, Image, TouchableOpacity } from "react-native";
-import Profile from "./Profile";
+import AccountSetting from "./AccountSetting";
 import { useNavigation, useRoute } from "@react-navigation/native";
 
 export default function Request() {
@@ -16,7 +16,7 @@ export default function Request() {
           <Text style={{ fontSize: 25, paddingBottom: 10,}}>Request</Text>
           </View>
 
-          <TouchableOpacity onPress={() => navigation.navigate(Profile)}>
+          <TouchableOpacity onPress={() => navigation.navigate(AccountSetting)}>
             <View style={{ alignItems: "flex-end", height: 40, width: 40,
                         borderRadius: 40, backgroundColor: "gray"}}>
             </View>
