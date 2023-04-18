@@ -12,6 +12,7 @@ import {
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { DonorForm } from "./DonorForm";
 import BloodDonationStart from "./BloodDonationStart";
+import Donate from "../Donate";
 
 export default function DonatorMap() {
   const navigation = useNavigation();
@@ -20,12 +21,24 @@ export default function DonatorMap() {
   return (
     <ScrollView style={{ paddingTop: 50, backgroundColor: "#fff", flex: 1 }}>
       <View style={{ paddingHorizontal: 20 }}>
+
+      <View style={{width: "100%", justifyContent: "space-between",
+            alignItems: "baseline", flexDirection: "row",}}>
+          <TouchableOpacity onPress={() => navigation.navigate(Donate)}>
+          <View>
+          <Image
+          style={{ width: 40, height: 40 }}
+          source={require("../../assets/BackButton.png")}/>
+          </View> 
+          </TouchableOpacity>
+
+          <View style={{ alignItems: "flex-end",}}>
+                <Text style={{fontSize: 25, paddingBottom: 10}}>Blood Facility Locator</Text>
+            </View>
+
+        </View>
+
         <View style={{ justifyContent: "center", alignItems: "center" }}>
-          <Text
-            style={{ textAlign: "center", fontSize: 25, fontWeight: "bold" }}
-          >
-            Blood Facility Locator
-          </Text>
           <Text
             style={{
               textAlign: "center",

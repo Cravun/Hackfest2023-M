@@ -10,6 +10,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
+import Request from "./Request";
 
 export default function BloodRequestStart() {
   const navigation = useNavigation();
@@ -18,8 +19,21 @@ export default function BloodRequestStart() {
   return (
     <ScrollView style={{ paddingTop: 50, backgroundColor: "#fff", flex: 1 }}>
       <View style={{ paddingHorizontal: 20 }}>
+
+      <View style={{width: "100%", justifyContent: "space-between",
+            alignItems: "baseline", flexDirection: "row",}}>
+          <TouchableOpacity onPress={() => navigation.navigate(Request)}>
+          <View>
+          <Image
+          style={{ width: 40, height: 40 }}
+          source={require("../assets/BackButton.png")}/>
+          </View> 
+          </TouchableOpacity>
+        
+        </View>
+
         <View style={{ justifyContent: "center", alignItems: "center" }}>
-          <View style={{ width: "100%", height: 90 }} />
+          <View style={{ width: "100%", height: 50 }} />
 
           <Image
             style={{ width: 82, height: 248 }}
