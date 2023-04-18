@@ -3,6 +3,7 @@ import { StyleSheet, Text, Linking, ScrollView, Button, View, Image, TouchableOp
 import AccountSetting from "./AccountSetting";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import Learn from "./Learn";
+import WhyDonate from "./WhyDonate";
 
 export default function DonationKnowledge() {
   const navigation = useNavigation();
@@ -35,7 +36,7 @@ export default function DonationKnowledge() {
 
         <View style={{ paddingHorizontal: 5 }}>
             <Text style={{ fontSize: 17, paddingBottom: 10 }}>Unit I</Text>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate(WhyDonate)}>
             <View style={{padding: 15, justifyContent: "center", borderColor: "gray",
                   height: 170, width: '100%', borderRadius: 8, borderWidth: 0.5,}}>
               

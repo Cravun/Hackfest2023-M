@@ -18,6 +18,7 @@ import DonorForm from "./pages/donation/DonorForm";
 import RequestKnowledge from "./pages/RequestKnowledge";
 import DonationKnowledge from "./pages/DonationKnowledge";
 import BloodRequestStart from "./pages/BloodRequestStart";
+import WhyDonate from "./pages/WhyDonate";
 
 //import Donate from "./pages/Donate";
 import Profile from "./pages/Profile";
@@ -103,6 +104,13 @@ function App() {
         <Stack.Screen
           name="BloodRequestStart"
           component={BloodRequestStart}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="WhyDonate"
+          component={WhyDonate}
           options={{
             headerShown: false,
           }}
