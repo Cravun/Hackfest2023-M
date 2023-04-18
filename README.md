@@ -26,6 +26,4 @@ SAGIP empowers individuals to save lives by leveraging modern technologies in ai
 * After the installation, Type in CMD: "yarn start" to run 
 
 ## Tehnology Stack: 
-- Firebase Authentication
-- Firebase Database
-- React Native
+React Native, Firebase
