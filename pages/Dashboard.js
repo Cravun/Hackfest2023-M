@@ -1,14 +1,20 @@
 import React from "react";
-import { StyleSheet, Text, Linking, Button, View, Image, TouchableOpacity } from "react-native";
-import { useNavigation, useRoute } from '@react-navigation/native';
-
+import {
+  StyleSheet,
+  Text,
+  Linking,
+  Button,
+  View,
+  Image,
+  TouchableOpacity,
+} from "react-native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 
 export default function Dashboard() {
   const navigation = useNavigation();
   const route = useRoute();
 
   return (
-
     <View style={{ paddingTop: 30, backgroundColor: "#fff", flex: 1 }}>
       <View style={{ paddingHorizontal: 20 }}>
         <Image
@@ -23,30 +29,35 @@ export default function Dashboard() {
             justifyContent: "space-around",
           }}
         >
-
-        <TouchableOpacity 
-          style={styles.applyButton}
-          onPress = {() => navigation.navigate("Donate",{
-              // "userID": route.params.userID
-          })}>
+          <TouchableOpacity
+            style={DonationButton.Container1}
+            onPress={() =>
+              navigation.navigate("Donate", {
+                // "userID": route.params.userID
+              })
+            }
+          >
             <View style={DonationButton.Container1}>
-            <Image
-              style={{ width: 35, height: 35 }}
-              source={require("../assets/RequestBlood.png")}
-            />
-          <Text style = {styles.applyButtonText}>I want to donate</Text>
-          </View>
-        </TouchableOpacity>
-        
-        <TouchableOpacity>
-          <View style={DonationButton.Container2}>
-            <Image
-              style={{ width: 35, height: 35 }}
-              source={require("../assets/RequestBlood.png")}
-            />
-            <Text style={DonationButton.Button1}>I need Blood</Text>
-          </View>
-        </TouchableOpacity>
+              <Image
+                style={{ width: 35, height: 35 }}
+                source={require("../assets/RequestBlood.png")}
+              />
+              <Text style={styles.applyButtonText}>I want to donate</Text>
+            </View>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={DonationButton.Container2}
+            onPress={() => navigation.navigate("Request")}
+          >
+            <View style={DonationButton.Container2}>
+              <Image
+                style={{ width: 35, height: 35 }}
+                source={require("../assets/RequestBlood.png")}
+              />
+              <Text style={DonationButton.Button1}>I need Blood</Text>
+            </View>
+          </TouchableOpacity>
         </View>
 
         <Text style={(styles.setFontSizeTwo, styles.setColor)}>Meet Ana</Text>
