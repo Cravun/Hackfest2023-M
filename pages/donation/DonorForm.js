@@ -83,8 +83,8 @@ export default function DonorForm() {
       <TextInput
         key="firstName"
         placeholder="First Name"
-        value={InputValues.firstName}
-        onChangeText={(value) => handleInputChange("firstName", value)}
+        value={InputValues.FirstName}
+        onChangeText={(value) => handleInputChange("FirstName", value)}
       />
       <TextInput
         key="middleName"

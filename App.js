@@ -38,13 +38,13 @@ function App() {
             headerShown: false,
           }}
         /> */}
-        {/* <Stack.Screen
+        <Stack.Screen
           name="SignUp"
           component={SignUp}
           options={{
             headerShown: false,
           }}
-        /> */}
+        />
         <Stack.Screen
           name="NavigationScreen"
           component={NavigationScreen}
