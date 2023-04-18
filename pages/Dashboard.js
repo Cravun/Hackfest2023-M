@@ -4,23 +4,37 @@ import {
   Text,
   Linking,
   Button,
+  ScrollView,
   View,
   Image,
   TouchableOpacity,
 } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
+import Profile from "./Profile";
 
 export default function Dashboard() {
   const navigation = useNavigation();
   const route = useRoute();
 
   return (
-    <View style={{ paddingTop: 30, backgroundColor: "#fff", flex: 1 }}>
+    <ScrollView style={{ paddingTop: 50, backgroundColor: "#fff", flex: 1 }}>
       <View style={{ paddingHorizontal: 20 }}>
-        <Image
+      
+        <View style={{width: "95%", justifyContent: "space-between",
+            alignItems: "baseline", flexDirection: "row",}}>
+          <View>
+          <Image
           style={{ width: 100, height: 50 }}
-          source={require("../assets/SAGIPLogo.png")}
-        />
+          source={require("../assets/SAGIPLogo.png")}/>
+          </View>
+
+          <TouchableOpacity onPress={() => navigation.navigate(Profile)}>
+            <View style={{ alignItems: "flex-end", height: 40, width: 40,
+                        borderRadius: 40, backgroundColor: "gray"}}>
+            </View>
+          </TouchableOpacity>
+        </View>
+        
 
         <View
           style={{
@@ -123,22 +137,12 @@ export default function Dashboard() {
             justifyContent: "space-around",
           }}
         >
-          <View
-            style={{
-              alignItems: "flex-start",
-              justifyContent: "flex-start",
-              flexDirection: "column",
-              width: 188,
-              height: 147,
-              paddingHorizontal: 7,
-              paddingVertical: 7,
-              backgroundColor: "#DD4438",
-              borderTopLeftRadius: 20,
-              borderTopRightRadius: 20,
-              borderBottomRightRadius: 0,
-              borderBottomLeftRadius: 20,
-
-              padding: 20,
+          <View style={{alignItems: "flex-start", justifyContent: "flex-start",
+              flexDirection: "column", width: 188, height: 147,
+              paddingHorizontal: 7, paddingVertical: 7, backgroundColor: "#DD4438",
+              borderTopLeftRadius: 20, borderTopRightRadius: 20,
+              borderBottomRightRadius: 0,borderBottomLeftRadius: 20,
+              padding: 20, marginHorizontal: 10,
             }}
           >
             <View>
@@ -156,22 +160,13 @@ export default function Dashboard() {
             </Text>
           </View>
 
-          <View
-            style={{
-              alignItems: "flex-start",
-              justifyContent: "flex-start",
-              flexDirection: "column",
-              width: 188,
-              height: 147,
-              borderTopLeftRadius: 20,
-              borderTopRightRadius: 20,
-              borderBottomRightRadius: 0,
-              borderBottomLeftRadius: 20,
-              paddingHorizontal: 7,
-              paddingVertical: 7,
-              paddingBottom: 10,
-              borderWidth: 0.2,
-              backgroundColor: "darkblue",
+          <View style={{alignItems: "flex-start",justifyContent: "flex-start",
+              flexDirection: "column", width: 188, height: 147,
+              borderTopLeftRadius: 20, borderTopRightRadius: 20,
+              borderBottomRightRadius: 0, borderBottomLeftRadius: 20,
+              paddingHorizontal: 7, paddingVertical: 7,
+              paddingBottom: 10, borderWidth: 0.2,
+              backgroundColor: "darkblue", marginHorizontal: 10,
             }}
           >
             <View>
@@ -191,8 +186,8 @@ export default function Dashboard() {
         </View>
       </View>
 
-      <View style={{ width: "100%", height: 15 }}></View>
-    </View>
+      <View style={{ width: "100%", height: 70 }}/>
+    </ScrollView>
   );
 }
 

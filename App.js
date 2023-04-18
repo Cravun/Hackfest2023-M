@@ -13,7 +13,7 @@ import SignUp from "./pages/SignUp";
 import NavigationScreen from "./pages/NavigationScreen";
 
 //import Donate from "./pages/Donate";
-//import Profile from "./pages/Profile";
+import Profile from "./pages/Profile";
 // import Onboarding1 from "./pages/Onboarding1";
 import Dashboard from "./pages/Dashboard";
 
@@ -40,6 +40,13 @@ function App() {
         <Stack.Screen
           name="NavigationScreen"
           component={NavigationScreen}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="Profile"
+          component={Profile}
           options={{
             headerShown: false,
           }}

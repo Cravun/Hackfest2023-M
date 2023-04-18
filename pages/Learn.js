@@ -1,11 +1,27 @@
 import React from "react";
-import { StyleSheet, Text, Linking, Button, View, Image, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, Linking, Button, ScrollView,View, Image, TouchableOpacity } from "react-native";
+import Profile from "./Profile";
+import { useNavigation, useRoute } from "@react-navigation/native";
 
 export default function Learn() {
+  const navigation = useNavigation();
+  const route = useRoute();
+
   return (
-    <View style={{ paddingTop: 50, backgroundColor: "#fff", flex: 1 }}>
+    <ScrollView style={{ paddingTop: 50, backgroundColor: "#fff", flex: 1 }}>
       <View style={{ paddingHorizontal: 20 }}>
-        <Text style={{ fontSize: 25, paddingBottom: 15 }}>Learn</Text>
+      <View style={{width: "95%", justifyContent: "space-between",
+            alignItems: "baseline", flexDirection: "row",}}>
+          <View>
+          <Text style={{ fontSize: 25, paddingBottom: 10,}}>Learn</Text>
+          </View>
+
+          <TouchableOpacity onPress={() => navigation.navigate(Profile)}>
+            <View style={{ alignItems: "flex-end", height: 40, width: 40,
+                        borderRadius: 40, backgroundColor: "gray"}}>
+            </View>
+          </TouchableOpacity>
+        </View>
         <Text style={{ fontSize: 20, paddingBottom: 10 }}>Section I</Text>
 
         <View style={{ alignItems: "center", justifyContent: "center",
@@ -71,7 +87,10 @@ export default function Learn() {
 
 
       </View>
-    </View>
+      
+      <View style={{width:'100%', height: 70}}/>
+
+    </ScrollView>
   );
 }
 

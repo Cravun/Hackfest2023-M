@@ -1,11 +1,27 @@
 import React from "react";
 import { StyleSheet, Text, Linking, Button, View, Image, TouchableOpacity } from "react-native";
+import Profile from "./Profile";
+import { useNavigation, useRoute } from "@react-navigation/native";
 
 export default function Request() {
+  const navigation = useNavigation();
+  const route = useRoute();
+
   return (
     <View style={{ paddingTop: 50, backgroundColor: "#fff", flex: 1 }}>
       <View style={{ paddingHorizontal: 20 }}>
-        <Text style={{ fontSize: 25, paddingBottom: 10 }}>Request</Text>
+      <View style={{width: "95%", justifyContent: "space-between",
+            alignItems: "baseline", flexDirection: "row",}}>
+          <View>
+          <Text style={{ fontSize: 25, paddingBottom: 10,}}>Request</Text>
+          </View>
+
+          <TouchableOpacity onPress={() => navigation.navigate(Profile)}>
+            <View style={{ alignItems: "flex-end", height: 40, width: 40,
+                        borderRadius: 40, backgroundColor: "gray"}}>
+            </View>
+          </TouchableOpacity>
+        </View>
 
         
         <View
