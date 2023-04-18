@@ -43,20 +43,16 @@ export default function Dashboard() {
             justifyContent: "space-around",
           }}
         >
-          <TouchableOpacity
-            style={DonationButton.Container1}
-            onPress={() =>
-              navigation.navigate("Donate", {
+          <TouchableOpacity style={DonationButton.Container1}
+            onPress={() => navigation.navigate("Donate", {
                 // "userID": route.params.userID
-              })
-            }
-          >
+              })}>
             <View style={DonationButton.Container1}>
               <Image
                 style={{ width: 35, height: 35 }}
-                source={require("../assets/RequestBlood.png")}
+                source={require("../assets/DonateBlood.png")}
               />
-              <Text style={styles.applyButtonText}>I want to donate</Text>
+              <Text style={DonationButton.Button2}>I want to donate</Text>
             </View>
           </TouchableOpacity>
 
@@ -77,7 +73,7 @@ export default function Dashboard() {
         
         <Text style={[(styles.setFontSizeTwo, styles.setColor, {paddingVertical: 10})]}>
           Meet Ana</Text>
-
+          <View>
             <View style={{alignItems: "center", justifyContent: "center",}}>
             <Image source={{ width: 320, height: 160,
             uri: "https://images.unsplash.com/photo-1507250671672-b76f9dde4188?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
@@ -88,9 +84,15 @@ export default function Dashboard() {
               fontSize: 13, paddingHorizontal: 10}}>
             <Text>Ana is a 9-year old girl suffering from anemia due to
             disease-modifying treatments, such as chemotherapy for cancer. Take
-            part in keeping Ana’s smile shine the world. </Text>
-          <Text style={styles.setColor2}>Donate for people like Ana.</Text>
+            part in keeping Ana’s smile shine the world. 
+          <TouchableOpacity onPress={() => navigation.navigate("Donate")}>
+            <View>
+            <Text style={styles.setColor2}>Donate for people like Ana.</Text>
+            </View>
+          </TouchableOpacity>
           </Text>
+          </Text>
+          </View>
           </View>
         
 

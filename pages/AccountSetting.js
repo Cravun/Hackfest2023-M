@@ -35,9 +35,7 @@ export default function AccountSetting() {
             <View style={{flexDirection: "row", height: 66, width: 66,
                         borderRadius: 66, backgroundColor: "gray", margin: 21,
                         justifyContent: "center", alignContent: "center",}}>
-                <View >
-                    <Text style={{color: "white", textAlign: "center", margin: 10}}>Image</Text>
-                </View>
+                
             </View>
 
             <View style={{flexDirection: "column", marginVertical: 21}}>

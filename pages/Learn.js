@@ -36,7 +36,7 @@ export default function Learn() {
           <Text style={{fontSize: 17, paddingTop: 10, fontWeight: "bold"}}>
             Blood Donation</Text>
             <Text style={{fontSize: 10, paddingTop: 2, color:"gray"}}>
-            1/8 Units</Text>
+            1/3 Units</Text>
             <Image style={{ width: 290, height: 10, borderRadius: 8,}}
           source={require("../assets/ProgressBar.png")}></Image>
           <Text style={{fontSize: 10, paddingVertical: 10,paddingHorizontal: 55, textAlign: "center",}}>
@@ -70,16 +70,16 @@ export default function Learn() {
           <Text style={{fontSize: 17, paddingTop: 10, fontWeight: "bold"}}>
             Blood Request</Text>
             <Text style={{fontSize: 10, paddingTop: 2, color:"gray"}}>
-            1/8 Units</Text>
+            1/4 Units</Text>
             <Image style={{ width: 290, height: 10, borderRadius: 8,}}
-          source={require("../assets/ProgressBar.png")}></Image>
+          source={require("../assets/ProgressBarBlue.png")}></Image>
           <Text style={{fontSize: 10, paddingVertical: 10,paddingHorizontal: 55, textAlign: "center",}}>
           Start with essential information and benefits on
            blood request.</Text>
 
            <TouchableOpacity onPress={() => navigation.navigate(RequestKnowledge)}>
               <View style={{ alignItems: "center", justifyContent: "center",
-            height: 30, width: 200, borderRadius: 8, backgroundColor: "#DD4438",
+            height: 30, width: 200, borderRadius: 8, backgroundColor: "#2E5C65",
               }}>
                 <Text style={{fontSize: 13, color: "#fff",}}>
                   Start</Text> 
