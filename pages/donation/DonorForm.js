@@ -17,6 +17,13 @@ export default function DonorForm() {
     FirstName: "",
     MiddleName: "",
     LastName: "",
+    DateofBirth: "",
+    Country: "",
+    City: "",
+    Province: "",
+    Street_Address: "",
+    Email: "",
+    Phone_Number: "",
   });
 
   const RequestCollectionRef = collection(db, "Donor Form");
@@ -79,15 +86,57 @@ export default function DonorForm() {
         onChangeText={(value) => handleInputChange("FirstName", value)}
       />
       <TextInput
-        placeholder="Last Name"
-        value={InputValues.LastName}
-        onChangeText={(value) => handleInputChange("LastName", value)}
-      />
-      <TextInput
         placeholder="Middle Name"
         value={InputValues.MiddleName}
         onChangeText={(value) => handleInputChange("MiddleName", value)}
       />
+      <TextInput
+        placeholder="Date of Birth"
+        value={InputValues.DateofBirth}
+        onChangeText={(value) => handleInputChange("Date of Birth", value)}
+      />
+
+      <TextInput
+        placeholder="Country"
+        value={InputValues.Country}
+        onChangeText={(value) => handleInputChange("Country", value)}
+      />
+      <TextInput
+        placeholder="City"
+        value={InputValues.City}
+        onChangeText={(value) => handleInputChange("City", value)}
+      />
+      <TextInput
+        placeholder="Province"
+        value={InputValues.Province}
+        onChangeText={(value) => handleInputChange("Province", value)}
+      />
+      <TextInput
+        placeholder="Street Address"
+        value={InputValues.Street_Address}
+        onChangeText={(value) => handleInputChange("Street Address", value)}
+      />
+      <TextInput
+        placeholder="Street Address"
+        value={InputValues.Street_Address}
+        onChangeText={(value) => handleInputChange("Street Address", value)}
+      />
+      <View>
+        <Text style={{ color: "#DD4438", fontSize: 12 }}>
+          Contact Information
+        </Text>
+        <TextInput
+          placeholder="Email"
+          value={InputValues.Email}
+          onChangeText={(value) => handleInputChange("Email", value)}
+        />
+        <TextInput
+          placeholder="Phone Number"
+          value={InputValues.Phone_Number}
+          onChangeText={(value) => handleInputChange("Phone Number", value)}
+        />
+      </View>
+
       <Button title="Submit" onPress={HandleSubmit} />
     </View>
   );
