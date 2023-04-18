@@ -23,7 +23,7 @@ if (firebase.apps.length === 0) {
   app = firebase.app();
 }
 const auth = firebase.auth();
+const app2 = initializeApp(firebaseConfig);
 
 export { auth };
-
-export const db = getFirestore(app);
+export const db = getFirestore(app2);
