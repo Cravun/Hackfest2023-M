@@ -1,4 +1,4 @@
-# Sagip 
+# Sagip ☀️
 
 SAGIP is an adaptive solution to the insufficiency and inaccessibility of blood supply through digitalization of both blood donor and request application. Sagip also provides comprehensive educational resources, potential donors can understand the benefits of their contribution to society and themselves. 
 
