@@ -7,6 +7,7 @@ import {
   View,
   Image,
   TouchableOpacity,
+  ScrollView,
 } from "react-native";
 import AccountSetting from "./AccountSetting";
 import { useNavigation, useRoute } from "@react-navigation/native";
@@ -17,7 +18,7 @@ export default function Donate() {
   const route = useRoute();
 
   return (
-    <View style={{ paddingTop: 50, backgroundColor: "#fff", flex: 1 }}>
+    <ScrollView style={{ paddingTop: 50, backgroundColor: "#fff", flex: 1 }}>
       <View style={{ paddingHorizontal: 20 }}>
         <View
           style={{
@@ -192,7 +193,7 @@ export default function Donate() {
           </Text>
         </View>
       </View>
-    </View>
+    </ScrollView>
   );
 }
 
