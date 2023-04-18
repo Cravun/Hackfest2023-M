@@ -10,9 +10,11 @@ SAGIP is an adaptive solution to the insufficiency and inaccessibility of blood 
 
 SAGIP empowers individuals to save lives by leveraging modern technologies in aiding the blood donor application and request process while providing comprehensive education, all in one convenient digital platform.
 
-### First, download Node.js to your local environment: https://nodejs.org/en Download the Recommend for most Users.
+### First, Download Node.js to your local environment: https://nodejs.org/en Download the Recommend for most Users.
 
-### Second, download Yarn to your local environment: https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable
+### Second, Download Yarn to your local environment: https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable
+
+### Third, Download Android Studio for Android SDK. https://developer.android.com/studio
 
 
 - Type in the Command Line Interface or CMD: "npm install --global yarn"
