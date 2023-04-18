@@ -16,7 +16,7 @@ export default function Donate() {
           }}
         >
           <Image style={{ width: 40, height: 40 }}
-          source={require("../assets/bandage.png")}></Image>
+          source={require("../assets/bandagered.png")}></Image>
 
           <Text style={{fontSize: 18, paddingVertical: 10, color: "#2E5C65",
             fontWeight:"bold", }}>
@@ -24,7 +24,7 @@ export default function Donate() {
 
           <Text style={{fontSize: 10, paddingBottom: 10,paddingHorizontal: 55, textAlign: "center",}}>
            It's time to take part in helping people in need and
-           start your heroic adventurer</Text>
+           start your heroic adventurer.</Text>
 
            <TouchableOpacity>
               <View style={{ alignItems: "center", justifyContent: "center",
@@ -75,7 +75,13 @@ export default function Donate() {
           </View>
           
         </View>
-        <View style={{ width: "100%", height: 80 }}></View>
+        <View style={{ width: "100%", height: 80,
+                    justifyContent:"center", alignItems: "center"}}>
+          <Text numberOfLines={1}>
+            <Text>Can't find your request history? </Text>
+            <Text style={{color: "#2E5C65",}}>Contact us</Text>
+          </Text>
+        </View>
       </View>
 
     </View>
