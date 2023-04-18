@@ -26,9 +26,10 @@ export default function DonationKnowledge() {
             </View>
         </View>
 
-        <View style={{alignItems:"center", justifyContent: "center"}}>
-        <Text style={{fontSize: 20, paddingBottom: 10, 
-                      paddingTop: 20,color: "#DD4438"}}>
+        <View style={{alignItems:"center", justifyContent: "center", marginVertical: 20,
+                      width:'100%', height: 35, backgroundColor: "#DD4438",}}>
+        <Text style={{fontSize: 20, fontWeight: "bold",
+                      color: "#fff"}}>
             Donation Knowledge</Text>
         </View>
 
@@ -145,7 +146,7 @@ export default function DonationKnowledge() {
             </TouchableOpacity>
 
         </View>
-        <View style={{height: 75, width: '100%',}}/>
+        <View style={{height: 120, width: '100%',}}/>
       </View>
     </ScrollView>
   );

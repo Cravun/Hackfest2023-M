@@ -2,6 +2,7 @@ import React from "react";
 import { StyleSheet, Text, Linking, Button, View, Image, TouchableOpacity } from "react-native";
 import AccountSetting from "./AccountSetting";
 import { useNavigation, useRoute } from "@react-navigation/native";
+import BloodRequestStart from "./BloodRequestStart";
 
 export default function Request() {
   const navigation = useNavigation();
@@ -34,7 +35,7 @@ export default function Request() {
           <Image style={{ width: 40, height: 40 }}
           source={require("../assets/bandageblue.png")}></Image>
 
-          <Text style={{fontSize: 18, paddingVertical: 10, color: "#2E5C65",
+          <Text style={{fontSize: 18, paddingVertical: 10, color: "#DD4438",
             fontWeight:"bold", }}>
             No application form...yet!</Text>
 
@@ -42,7 +43,7 @@ export default function Request() {
            A doctor's request document is required to
            proceed with request application.</Text>
 
-           <TouchableOpacity>
+           <TouchableOpacity onPress={() => navigation.navigate(BloodRequestStart)}>
               <View style={{ alignItems: "center", justifyContent: "center",
             height: 40, width: 150, borderRadius: 8, backgroundColor: "#2E5C65",
               }}>

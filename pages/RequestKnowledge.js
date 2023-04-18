@@ -26,9 +26,10 @@ export default function RequestKnowledge() {
             </View>
         </View>
 
-        <View style={{alignItems:"center", justifyContent: "center"}}>
-        <Text style={{fontSize: 20, paddingBottom: 10, 
-                      paddingTop: 20,color: "#2E5C65"}}>
+        <View style={{alignItems:"center", justifyContent: "center", marginVertical: 20,
+                      width:'100%', height: 35, backgroundColor: "#2E5C65",}}>
+        <Text style={{fontSize: 20, fontWeight: "bold",
+                      color: "#fff"}}>
             Request Knowledge</Text>
         </View>
 
@@ -144,10 +145,48 @@ export default function RequestKnowledge() {
             </View>
             </TouchableOpacity>
 
-            
+            <View style={{height: 20, width: '100%',}}/>
+
+            {/* Unit III */}
+            <Text style={{ fontSize: 17, paddingBottom: 10 }}>Unit III</Text>
+
+            {/* The Next Steps */}
+            <TouchableOpacity>
+            <View style={{padding: 15, justifyContent: "center", borderColor: "gray",
+                  height: 170, width: '100%', borderRadius: 8, borderWidth: 0.5,}}>
+              
+              <View style={{width: "95%", justifyContent: "space-between",
+                  alignItems: "baseline", flexDirection: "row",}}>
+              <Text style={{ fontSize: 25, paddingBottom: 10, fontWeight:"bold"}}>
+                The Next Steps</Text>
+
+                <Text style={[styles1.setColor,{ alignItems: "flex-end",fontSize: 15, 
+                      paddingBottom: 10, fontWeight:"bold",}]}>
+                15%</Text>
+              </View>
+
+              <Image style={{ width: '100%', height: 10, borderRadius: 8,}}
+                source={require("../assets/ProgressBarBlue.png")}/>
+
+              <View style={{flexDirection: "row", justifyContent: "space-around"}}>
+                <View style={{height: 50, width: 250, margin: 10}}>
+                <Text style={{fontSize: 12, paddingTop: 20}}>
+                  {/* Enter text here */}
+                </Text>
+                <Text style={{fontSize: 12,}}>
+                  {/* Enter text here */}
+                </Text>
+                </View>
+                
+                <Image style={{ width: 40, height: 40, 
+                marginTop: 25,transform: [{ scaleX: -1 }]}}
+                source={require("../assets/BackButton.png")}/>
+              </View>
+            </View>
+            </TouchableOpacity>
 
         </View>
-        <View style={{height: 75, width: '100%',}}/>
+        <View style={{height: 120, width: '100%',}}/>
       </View>
     </ScrollView>
   );
