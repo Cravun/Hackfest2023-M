@@ -9,10 +9,10 @@ import Learn from "./Learn";
 
 const Tab = createBottomTabNavigator();
 
-// const Dashboard = "Dashboard";
-// const Donate = "Donate";
-// const Request = "Request";
-// const Learn = "Learn";
+const DashboardScreen = "Dashboard";
+const DonateScreen = "Donate";
+const RequestScreen = "Request";
+const LearnScreen = "Learn";
 
 const NavigationScreen = () => {
   const route = useRoute();
@@ -25,14 +25,14 @@ const NavigationScreen = () => {
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
           let rn = route.name;
-          if (rn === Dashboard) {
-            iconName = focused ? "planet-outline" : "planet-outline";
-          } else if (rn === Donate) {
+          if (rn === DashboardScreen) {
+            iconName = focused ? "home" : "home";
+          } else if (rn === DonateScreen) {
             iconName = focused ? "heart-half-outline" : "heart-half-outline";
-          } else if (rn === Request) {
+          } else if (rn === RequestScreen) {
             iconName = focused ? "hand-right-outline" : "hand-right-outline";
-          } else if (rn === Learn) {
-            iconName = focused ? "person-outline" : "person-outline";
+          } else if (rn === LearnScreen) {
+            iconName = focused ? "book-outline" : "book-outline";
           }
           // You can return any component that you like here!
           return <Ionicons name={iconName} size={size} color={color} />;
