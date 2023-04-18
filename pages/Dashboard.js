@@ -1,8 +1,14 @@
 import React from "react";
-import { StyleSheet, Text, Linking, Button, View, Image } from "react-native";
+import { StyleSheet, Text, Linking, Button, View, Image, TouchableOpacity } from "react-native";
+import { useNavigation, useRoute } from '@react-navigation/native';
+
 
 export default function Dashboard() {
+  const navigation = useNavigation();
+  const route = useRoute();
+
   return (
+
     <View style={{ paddingTop: 30, backgroundColor: "#fff", flex: 1 }}>
       <View style={{ paddingHorizontal: 20 }}>
         <Image
@@ -17,13 +23,14 @@ export default function Dashboard() {
             justifyContent: "space-around",
           }}
         >
-          <View style={DonationButton.Container1}>
-            <Image
-              style={{ width: 35, height: 35 }}
-              source={require("../assets/DonateBlood.png")}
-            />
-            <Text style={DonationButton.Button2}>I want to donate</Text>
-          </View>
+
+        <TouchableOpacity 
+          style={styles.applyButton}
+          onPress = {() => navigation.navigate("Donate",{
+              // "userID": route.params.userID
+          })}>
+          <Text style = {styles.applyButtonText}>I want to donate</Text>
+        </TouchableOpacity>
 
           <View style={DonationButton.Container2}>
             <Image
@@ -34,7 +41,7 @@ export default function Dashboard() {
           </View>
         </View>
 
-        <Text style={(styles1.setFontSizeTwo, styles1.setColor)}>Meet Ana</Text>
+        <Text style={(styles.setFontSizeTwo, styles.setColor)}>Meet Ana</Text>
 
         <Image
           source={{
@@ -57,7 +64,7 @@ export default function Dashboard() {
           Ana is a 9-year old girl suffering from anemia due to
           disease-modifying treatments, such as chemotherapy for cancer. Take
           part in keeping Ana’s smile shine the world.{" "}
-          <Text style={styles1.setColor2}>Donate for Ana.</Text>
+          <Text style={styles.setColor2}>Donate for Ana.</Text>
         </Text>
 
         <View
@@ -71,7 +78,7 @@ export default function Dashboard() {
           <View>
             <Text
               style={[
-                styles1.setFontSizeTwo,
+                styles.setFontSizeTwo,
                 {
                   paddingTop: 8,
                   paddingBottom: 5,
@@ -166,67 +173,11 @@ export default function Dashboard() {
       </View>
 
       <View style={{ width: "100%", height: 15 }}></View>
-
-      <View
-        style={{
-          width: "100%",
-          flex: 1,
-          paddingTop: 5,
-          flexDirection: "row",
-          justifyContent: "space-around",
-          borderWidth: 0.5,
-          shadowOpacity: 1,
-        }}
-      >
-        <View
-          style={{
-            alignItems: "center",
-            justifyContent: "center",
-            height: 40,
-            width: 80,
-          }}
-        >
-          <Text style={{ color: "red" }}>Home</Text>
-        </View>
-
-        <View
-          style={{
-            alignItems: "center",
-            justifyContent: "center",
-            height: 40,
-            width: 80,
-          }}
-        >
-          <Text style={{ color: "red" }}>Donate</Text>
-        </View>
-
-        <View
-          style={{
-            alignItems: "center",
-            justifyContent: "center",
-            height: 40,
-            width: 80,
-          }}
-        >
-          <Text style={{ color: "red" }}>Request</Text>
-        </View>
-
-        <View
-          style={{
-            alignItems: "center",
-            justifyContent: "center",
-            height: 40,
-            width: 80,
-          }}
-        >
-          <Text style={{ color: "red" }}>Learn</Text>
-        </View>
-      </View>
     </View>
   );
 }
 
-const styles1 = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
