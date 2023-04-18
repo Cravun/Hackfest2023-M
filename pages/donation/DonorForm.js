@@ -81,27 +81,32 @@ export default function DonorForm() {
   return (
     <View style={styles.container}>
       <TextInput
+        key="firstName"
         placeholder="First Name"
-        value={InputValues.FirstName}
-        onChangeText={(value) => handleInputChange("FirstName", value)}
+        value={InputValues.firstName}
+        onChangeText={(value) => handleInputChange("firstName", value)}
       />
       <TextInput
+        key="middleName"
         placeholder="Middle Name"
         value={InputValues.MiddleName}
         onChangeText={(value) => handleInputChange("MiddleName", value)}
       />
       <TextInput
+        key="dateOfBirth"
         placeholder="Date of Birth"
         value={InputValues.DateofBirth}
-        onChangeText={(value) => handleInputChange("Date of Birth", value)}
+        onChangeText={(value) => handleInputChange("DateofBirth", value)}
       />
 
       <TextInput
+        key="country"
         placeholder="Country"
         value={InputValues.Country}
         onChangeText={(value) => handleInputChange("Country", value)}
       />
       <TextInput
+        key="city"
         placeholder="City"
         value={InputValues.City}
         onChangeText={(value) => handleInputChange("City", value)}
@@ -114,12 +119,7 @@ export default function DonorForm() {
       <TextInput
         placeholder="Street Address"
         value={InputValues.Street_Address}
-        onChangeText={(value) => handleInputChange("Street Address", value)}
-      />
-      <TextInput
-        placeholder="Street Address"
-        value={InputValues.Street_Address}
-        onChangeText={(value) => handleInputChange("Street Address", value)}
+        onChangeText={(value) => handleInputChange("Street_Address", value)}
       />
       <View>
         <Text style={{ color: "#DD4438", fontSize: 12 }}>
@@ -133,7 +133,7 @@ export default function DonorForm() {
         <TextInput
           placeholder="Phone Number"
           value={InputValues.Phone_Number}
-          onChangeText={(value) => handleInputChange("Phone Number", value)}
+          onChangeText={(value) => handleInputChange("Phone_Number", value)}
         />
       </View>
 
