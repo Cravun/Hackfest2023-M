@@ -2,6 +2,7 @@ import React from "react";
 import { StyleSheet, Text, Linking, Button, View, Image, TouchableOpacity } from "react-native";
 import AccountSetting from "./AccountSetting";
 import { useNavigation, useRoute } from "@react-navigation/native";
+import DonatorMap from "./DonatorMap";
 
 export default function Donate() {
   const navigation = useNavigation();
@@ -44,7 +45,7 @@ export default function Donate() {
            It's time to take part in helping people in need and
            start your heroic adventurer.</Text>
 
-           <TouchableOpacity>
+           <TouchableOpacity onPress={() => navigation.navigate(DonatorMap)}>
               <View style={{ alignItems: "center", justifyContent: "center",
             height: 40, width: 150, borderRadius: 8, backgroundColor: "#DD4438",
               }}>

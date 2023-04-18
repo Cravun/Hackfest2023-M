@@ -12,6 +12,8 @@ import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import AccountSetting from "./pages/AccountSetting";
 import NavigationScreen from "./pages/NavigationScreen";
+import DonatorMap from "./pages/DonatorMap";
+import BloodDonationStart from "./pages/BloodDonationStart";
 
 //import Donate from "./pages/Donate";
 import Profile from "./pages/Profile";
@@ -55,6 +57,20 @@ function App() {
         <Stack.Screen
           name="AccountSetting"
           component={AccountSetting}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="DonatorMap"
+          component={DonatorMap}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="BloodDonationStart"
+          component={BloodDonationStart}
           options={{
             headerShown: false,
           }}
