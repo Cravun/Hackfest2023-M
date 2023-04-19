@@ -22,9 +22,11 @@ export default function DonationKnowledge() {
           </View>
           </TouchableOpacity>
 
+          <TouchableOpacity onPress={() => navigation.navigate(AccountSetting)}>
             <View style={{ alignItems: "flex-end", height: 40, width: 40,
                         borderRadius: 40, backgroundColor: "gray"}}>
             </View>
+          </TouchableOpacity>
         </View>
 
         <View style={{alignItems:"center", justifyContent: "center", marginVertical: 20,
