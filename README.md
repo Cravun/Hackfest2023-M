@@ -14,7 +14,7 @@ SAGIP empowers individuals to save lives by leveraging modern technologies in ai
 
 ### Second, Download Yarn to your local environment: https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable
 
-### Third, Download Android Studio for Android SDK. https://developer.android.com/studio
+### Third, Download Android Studio for Android SDK. and Lastly Android Emulator. https://developer.android.com/studio
 
 
 - Type in the Command Line Interface or CMD: "npm install --global yarn"
