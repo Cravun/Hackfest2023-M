@@ -93,6 +93,12 @@ export default function DonorForm() {
         onChangeText={(value) => handleInputChange("MiddleName", value)}
       />
       <TextInput
+        key="LastName"
+        placeholder="Last Name"
+        value={InputValues.LastName}
+        onChangeText={(value) => handleInputChange("LastName", value)}
+      />
+      <TextInput
         key="dateOfBirth"
         placeholder="Date of Birth"
         value={InputValues.DateofBirth}
