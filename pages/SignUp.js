@@ -1,5 +1,13 @@
 import React, { useState } from "react";
-import { View, TextInput, Button, StyleSheet, Text, Alert, TouchableOpacity } from "react-native";
+import {
+  View,
+  TextInput,
+  Button,
+  StyleSheet,
+  Text,
+  Alert,
+  TouchableOpacity,
+} from "react-native";
 import { auth } from "../firebase";
 import { useNavigation, useRoute } from "@react-navigation/native";
 
@@ -44,19 +52,20 @@ const SignUp = () => {
       .then((userCredential) => {
         const user = userCredential.user;
         Alert.alert("Success", "Account created successfully");
-        navigation.navigate("NavigationScreen", { screen: "NavigationScreen" });
+        navigation.navigate("SignIn");
       })
       .catch((error) => alert(error.message));
   };
 
   return (
     <View style={styles.opencontainer}>
-
       {/*Header*/}
       <View style={styles.container}>
         <Text style={styles.text2}>Welcome to SAGIP!</Text>
-        <Text style={styles.text3}>We are pleased too serve you!
-         Let's get started by creating an account.</Text>
+        <Text style={styles.text3}>
+          We are pleased too serve you! Let's get started by Creating an
+          Account.
+        </Text>
       </View>
 
       {/*Input account details*/}
@@ -89,7 +98,7 @@ const SignUp = () => {
       <View>
         <Text style={styles.text1}>Confirm Password</Text>
         <TextInput
-          style={[styles.input,{marginBottom: 20}]}
+          style={[styles.input, { marginBottom: 20 }]}
           placeholder=""
           onChangeText={(text) => handleInputChange("confirmPassword", text)}
           value={inputValues.confirmPassword}
@@ -99,67 +108,108 @@ const SignUp = () => {
 
       {/*Next Button*/}
       <TouchableOpacity onPress={handleSubmit}>
-        <View style={[styles.centerall, styles.nextbutton]}> 
-          <Text style={{color: "white"}}>Next</Text>
+        <View style={[styles.centerall, styles.nextbutton]}>
+          <Text style={{ color: "white", fontSize: 17, fontWeight: "700" }}>
+            Next
+          </Text>
         </View>
       </TouchableOpacity>
-      
+
       {/*Already have an account?*/}
-      <View style={[styles.centerall, {paddingVertical: 10}]}>
+      <View style={[styles.centerall, { paddingVertical: 10 }]}>
         <Text numberOfLines={1}>
-          <Text style={{fontSize: 13}}>Already have an account? </Text>
-            <Text style={{color: "#DD4438", fontSize: 13}} onPress={() => navigation.navigate("SignIn")}>
-              Login Now</Text>
+          <Text style={{ fontSize: 13 }}>Already have an account? </Text>
+          <Text
+            style={{ color: "#DD4438", fontSize: 13 }}
+            onPress={() => navigation.navigate("SignIn")}
+          >
+            Login Now
+          </Text>
         </Text>
       </View>
 
-      {/*Or with*/}
-      <View style={[styles.centerall, {paddingVertical: 10}]}>
-        <Text style={{color: "gray"}}>Or with</Text>
+      {/* Or with */}
+      <View
+        style={{
+          borderBottomColor: "black",
+          borderBottomWidth: 1,
+          paddingBottom: 10,
+          marginVertical: 10,
+          width: 342,
+        }}
+      >
+        <Text
+          style={{
+            justifyContent: "center",
+            alignItems: "center",
+            textAlign: "center",
+            zIndex: 1,
+            position: "relative",
+            backgroundColor: "#FFFFFF",
+            width: 100,
+            top: 70,
+            left: "50%",
+            transform: [{ translateX: -50 }, { translateY: -50 }],
+          }}
+        >
+          Or with
+        </Text>
       </View>
 
       {/*Sign in with*/}
-      <View style={[styles.centerall,{paddingVertical: 10}]}>
+      <View style={[styles.centerall, { paddingVertical: 10 }]}>
         {/*Apple*/}
         <TouchableOpacity>
-          <View style={[styles.centerall, styles.signinwithbutton, {backgroundColor: "black"}]}>
-              <Text style={{fontSize: 15, color: "#fff"}}>
-                Sign in with Apple</Text>
+          <View
+            style={[
+              styles.centerall,
+              styles.signinwithbutton,
+              { backgroundColor: "black" },
+            ]}
+          >
+            <Text style={{ fontSize: 15, color: "#fff" }}>
+              Sign in with Apple
+            </Text>
           </View>
         </TouchableOpacity>
 
         {/*Google*/}
         <TouchableOpacity>
-          <View style={[styles.centerall, styles.signinwithbutton, {backgroundColor: "white", borderWidth: 0.3, marginTop: 10}]}>
-              <Text style={{fontSize: 15,}}>
-                Sign in with Google</Text>
+          <View
+            style={[
+              styles.centerall,
+              styles.signinwithbutton,
+              { backgroundColor: "white", borderWidth: 0.3, marginTop: 10 },
+            ]}
+          >
+            <Text style={{ fontSize: 15 }}>Sign in with Google</Text>
           </View>
         </TouchableOpacity>
-
       </View>
-
-
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  opencontainer:{
+  opencontainer: {
     flex: 1,
+    backgroundColor: "#FFFFFF",
+    justifyContent: "center",
+    alignItems: "center",
     paddingHorizontal: 20,
     paddingVertical: 65,
   },
 
-  nextbutton:{
-    backgroundColor: "#DD4438", 
-    width: '100%',
-    height: 40, 
+  nextbutton: {
+    backgroundColor: "#DD4438",
+    width: 342,
+    height: 56,
     borderRadius: 10,
   },
 
-  signinwithbutton:{
-    width: 250,
-    height: 50, 
+  signinwithbutton: {
+    width: 300,
+    height: 44,
     borderRadius: 10,
   },
 
@@ -177,8 +227,8 @@ const styles = StyleSheet.create({
     fontWeight: "600",
   },
   input: {
-    width: '100%',
-    height: 40,
+    width: 342,
+    height: 56,
     marginBottom: 15,
     padding: 10,
     backgroundColor: "#D9D9D9",
@@ -196,7 +246,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     paddingHorizontal: 20,
     paddingBottom: 30,
-  }
+  },
 });
 
 export default SignUp;

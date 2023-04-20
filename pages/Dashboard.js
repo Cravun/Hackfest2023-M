@@ -19,22 +19,33 @@ export default function Dashboard() {
   return (
     <ScrollView style={{ paddingTop: 50, backgroundColor: "#fff", flex: 1 }}>
       <View style={{ paddingHorizontal: 20 }}>
-      
-        <View style={{width: "95%", justifyContent: "space-between",
-            alignItems: "baseline", flexDirection: "row",}}>
+        <View
+          style={{
+            width: "95%",
+            justifyContent: "space-between",
+            alignItems: "baseline",
+            flexDirection: "row",
+          }}
+        >
           <View>
-          <Image
-          style={{ width: 100, height: 50 }}
-          source={require("../assets/SAGIPLogo.png")}/>
+            <Image
+              style={{ width: 100, height: 50 }}
+              source={require("../assets/SAGIPLogo.png")}
+            />
           </View>
 
           <TouchableOpacity onPress={() => navigation.navigate(AccountSetting)}>
-            <View style={{ alignItems: "flex-end", height: 40, width: 40,
-                        borderRadius: 40, backgroundColor: "gray"}}>
-            </View>
+            <View
+              style={{
+                alignItems: "flex-end",
+                height: 40,
+                width: 40,
+                borderRadius: 40,
+                backgroundColor: "gray",
+              }}
+            ></View>
           </TouchableOpacity>
         </View>
-        
 
         <View
           style={{
@@ -43,10 +54,14 @@ export default function Dashboard() {
             justifyContent: "space-around",
           }}
         >
-          <TouchableOpacity style={DonationButton.Container1}
-            onPress={() => navigation.navigate("Donate", {
+          <TouchableOpacity
+            style={DonationButton.Container1}
+            onPress={() =>
+              navigation.navigate("Donate", {
                 // "userID": route.params.userID
-              })}>
+              })
+            }
+          >
             <View style={DonationButton.Container1}>
               <Image
                 style={{ width: 35, height: 35 }}
@@ -70,83 +85,143 @@ export default function Dashboard() {
           </TouchableOpacity>
         </View>
 
-        
-        <Text style={[(styles.setFontSizeTwo, styles.setColor, {paddingVertical: 10})]}>
-          Meet Ana</Text>
-          <View>
-            <View style={{alignItems: "center", justifyContent: "center",}}>
-            <Image source={{ width: 320, height: 160,
-            uri: "https://images.unsplash.com/photo-1507250671672-b76f9dde4188?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
-                  }}/>
+        <Text
+          style={[
+            (styles.setFontSizeTwo, styles.setColor, { paddingVertical: 10 }),
+          ]}
+        >
+          Meet Ana
+        </Text>
+        <View>
+          <View style={{ alignItems: "center", justifyContent: "center" }}>
+            <Image
+              source={{
+                width: 320,
+                height: 160,
+                uri: "https://images.unsplash.com/photo-1507250671672-b76f9dde4188?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
+              }}
+            />
 
-          <Text numberOfLines={4} style={{paddingTop: 5, textAlign: "justify", 
-              width: 345, lineHeight: 20, color: "#434343", 
-              fontSize: 13, paddingHorizontal: 10}}>
-            <Text>Ana is a 9-year old girl suffering from anemia due to
-            disease-modifying treatments, such as chemotherapy for cancer. Take
-            part in keeping Ana’s smile shine the world. 
-          <TouchableOpacity onPress={() => navigation.navigate("Donate")}>
-            <View>
-            <Text style={styles.setColor2}>Donate for people like Ana.</Text>
-            </View>
-          </TouchableOpacity>
-          </Text>
-          </Text>
+            <Text
+              numberOfLines={4}
+              style={{
+                paddingTop: 5,
+                textAlign: "justify",
+                width: 345,
+                lineHeight: 20,
+                color: "#434343",
+                fontSize: 13,
+                paddingHorizontal: 10,
+              }}
+            >
+              <Text>
+                Ana is a 9-year old girl suffering from anemia due to
+                disease-modifying treatments, such as chemotherapy for cancer.
+                Take part in keeping Ana’s smile shine the world.
+                <TouchableOpacity onPress={() => navigation.navigate("Donate")}>
+                  <Text style={styles.Ana}>Donate for people like Ana.</Text>
+                </TouchableOpacity>
+              </Text>
+            </Text>
           </View>
-          </View>
-        
+        </View>
 
-        <View style={{width: "95%", justifyContent: "space-between",
-            alignItems: "baseline", flexDirection: "row",}}>
-
+        <View
+          style={{
+            width: "95%",
+            justifyContent: "space-between",
+            alignItems: "baseline",
+            flexDirection: "row",
+          }}
+        >
           <View>
-            <Text style={[styles.setFontSizeTwo,{paddingTop: 8, 
-                paddingBottom: 5, alignItems: "flex-start",color: "#434343",},]}
-                numberOfLines={1}>
-              Learn</Text>
+            <Text
+              style={[
+                styles.setFontSizeTwo,
+                {
+                  paddingTop: 8,
+                  paddingBottom: 5,
+                  alignItems: "flex-start",
+                  color: "#434343",
+                },
+              ]}
+              numberOfLines={1}
+            >
+              Learn
+            </Text>
           </View>
 
           <TouchableOpacity onPress={() => navigation.navigate("Learn")}>
-          <View style={{alignItems: "flex-end" }}>
-            <Text>See more</Text>
-          </View>
+            <View style={{ alignItems: "flex-end" }}>
+              <Text>See more</Text>
+            </View>
           </TouchableOpacity>
-
         </View>
 
-
-        <View style={{alignItems: "center", justifyContent: "center",}}>
-            <View style={{width: '100%', height: 130, backgroundColor: "#DD4438",
-              borderTopLeftRadius: 20, borderTopRightRadius: 20, borderBottomRightRadius: 0,
-              borderBottomLeftRadius: 20, padding: 20, margin: 10,}}>
-              <Text style={{ color: "white", fontSize: 20 }}>
-                Benefits of donating blood
-              </Text>
-              <Text numberOfLines={4} style={{color: "white", 
-                        textAlign: "justify",paddingTop: 8, fontSize: 12 }}>
-              It depends on the condition, but many medical conditions do not
-              necessarily disqualify you from donating blood.
-              </Text>
-            </View>
-
-          <View style={{width: '100%', height: 130, backgroundColor: "darkblue",
-              borderTopLeftRadius: 20, borderTopRightRadius: 20, borderBottomRightRadius: 0, 
-              borderBottomLeftRadius: 20, padding: 20,}}>
-
-              <Text style={{ color: "white", fontSize: 20 }}>
-                Eligibility for blood donation
-              </Text>
-
-              <Text numberOfLines={4} style={{color: "white", 
-                        textAlign: "justify",paddingTop: 8, fontSize: 12 }}>
+        <View style={{ alignItems: "center", justifyContent: "center" }}>
+          <View
+            style={{
+              width: "100%",
+              height: 130,
+              backgroundColor: "#DD4438",
+              borderTopLeftRadius: 20,
+              borderTopRightRadius: 20,
+              borderBottomRightRadius: 0,
+              borderBottomLeftRadius: 20,
+              padding: 20,
+              margin: 10,
+            }}
+          >
+            <Text style={{ color: "white", fontSize: 20 }}>
+              Benefits of donating blood
+            </Text>
+            <Text
+              numberOfLines={4}
+              style={{
+                color: "white",
+                textAlign: "justify",
+                paddingTop: 8,
+                fontSize: 12,
+              }}
+            >
               It depends on the condition, but many medical conditions do not
               necessarily disqualify you from donating blood.
             </Text>
           </View>
-      </View>
+
+          <View
+            style={{
+              width: "100%",
+              height: 130,
+              backgroundColor: "darkblue",
+              borderTopLeftRadius: 20,
+              borderTopRightRadius: 20,
+              borderBottomRightRadius: 0,
+              borderBottomLeftRadius: 20,
+              padding: 20,
+            }}
+          >
+            <Text style={{ color: "white", fontSize: 20 }}>
+              Eligibility for blood donation
+            </Text>
+
+            <Text
+              numberOfLines={4}
+              style={{
+                color: "white",
+                textAlign: "justify",
+                paddingTop: 8,
+                fontSize: 12,
+              }}
+            >
+              It depends on the condition, but many medical conditions do not
+              necessarily disqualify you from donating blood.
+            </Text>
+          </View>
+        </View>
       </View>
 
-      <View style={{ width: "100%", height: 70 }}/>
+      <View style={{ width: "100%", height: 70 }} />
     </ScrollView>
   );
 }
@@ -176,7 +251,7 @@ const styles = StyleSheet.create({
     color: "#434343",
   },
   // Red
-  setColor2: {
+  Ana: {
     color: "#DD4438",
   },
 });

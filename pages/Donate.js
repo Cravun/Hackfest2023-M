@@ -19,7 +19,12 @@ export default function Donate() {
 
   return (
     <ScrollView style={{ paddingTop: 50, backgroundColor: "#fff", flex: 1 }}>
-      <View style={{ paddingHorizontal: 20 }}>
+      <View
+        style={{
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
         <View
           style={{
             width: "95%",
@@ -45,17 +50,7 @@ export default function Donate() {
           </TouchableOpacity>
         </View>
 
-        <View
-          style={{
-            alignItems: "center",
-            justifyContent: "center",
-            height: 190,
-            width: 320,
-            borderRadius: 8,
-            borderWidth: 0.5,
-            borderColor: "gray",
-          }}
-        >
+        <View style={styles1.ContainerShadow}>
           <Image
             style={{ width: 40, height: 40 }}
             source={require("../assets/bandagered.png")}
@@ -89,13 +84,13 @@ export default function Donate() {
               style={{
                 alignItems: "center",
                 justifyContent: "center",
-                height: 40,
-                width: 150,
-                borderRadius: 8,
+                height: 41,
+                width: 170,
+                borderRadius: 10,
                 backgroundColor: "#DD4438",
               }}
             >
-              <Text style={{ fontSize: 15, color: "#fff" }}>
+              <Text style={{ fontSize: 15, color: "#fff", fontWeight: "600" }}>
                 Apply for donation
               </Text>
             </View>
@@ -111,24 +106,25 @@ export default function Donate() {
           }}
         />
 
-        <Text style={{ fontSize: 20, paddingBottom: 10 }}>
+        <Text
+          style={{
+            fontSize: 20,
+            paddingBottom: 10,
+            fontWeight: "600",
+            position: "relative",
+            right: 100,
+          }}
+        >
           Your Past Donations
         </Text>
       </View>
       <View style={{ flexDirection: "column" }}>
-        <View
-          style={{
-            width: "100%",
-            height: 100,
-            borderWidth: 0.3,
-            flexDirection: "row",
-          }}
-        >
+        <View style={styles1.PastDonation}>
           <View
             style={{
               height: 80,
               width: 80,
-              borderRadius: 12,
+              borderRadius: 10,
               justifyContent: "center",
               margin: 10,
               backgroundColor: "gray",
@@ -152,15 +148,29 @@ export default function Donate() {
           style={{
             width: "100%",
             height: 100,
-            borderWidth: 0.3,
+            alignItems: "center",
+            borderRadius: 10,
+            backgroundColor: "#fff",
+            borderRadius: 8,
             flexDirection: "row",
+            ...Platform.select({
+              ios: {
+                shadowColor: "#000",
+                shadowOffset: { width: 0, height: 10 },
+                shadowOpacity: 0.15,
+                shadowRadius: 10,
+              },
+              android: {
+                elevation: 10,
+              },
+            }),
           }}
         >
           <View
             style={{
               height: 80,
               width: 80,
-              borderRadius: 12,
+              borderRadius: 10,
               justifyContent: "center",
               margin: 10,
               backgroundColor: "gray",
@@ -229,5 +239,50 @@ const styles1 = StyleSheet.create({
   // Red
   setColor2: {
     color: "#DD4438",
+  },
+  ContainerShadow: {
+    paddingHorizontal: 20,
+    justifyContent: "center",
+    alignItems: "center",
+    borderColor: "#DD4438",
+    alignItems: "center",
+    justifyContent: "center",
+    height: 242,
+    width: 350,
+    borderRadius: 10,
+    borderWidth: 0.1,
+    backgroundColor: "#fff",
+    marginBottom: 16,
+    ...Platform.select({
+      ios: {
+        shadowColor: "#000",
+        shadowOffset: { width: 0, height: 10 },
+        shadowOpacity: 0.15,
+        shadowRadius: 10,
+      },
+      android: {
+        elevation: 10,
+      },
+    }),
+  },
+  PastDonation: {
+    width: "100%",
+    height: 100,
+    alignItems: "center",
+    borderRadius: 10,
+    backgroundColor: "#fff",
+    borderRadius: 8,
+    flexDirection: "row",
+    ...Platform.select({
+      ios: {
+        shadowColor: "#000",
+        shadowOffset: { width: 0, height: 10 },
+        shadowOpacity: 0.15,
+        shadowRadius: 10,
+      },
+      android: {
+        elevation: 10,
+      },
+    }),
   },
 });

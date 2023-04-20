@@ -31,13 +31,6 @@ function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        {/* <Stack.Screen
-          name="SignIn"
-          component={SignIn}
-          options={{
-            headerShown: false,
-          }}
-        /> */}
         <Stack.Screen
           name="SignUp"
           component={SignUp}
@@ -45,6 +38,14 @@ function App() {
             headerShown: false,
           }}
         />
+        <Stack.Screen
+          name="SignIn"
+          component={SignIn}
+          options={{
+            headerShown: false,
+          }}
+        />
+
         <Stack.Screen
           name="NavigationScreen"
           component={NavigationScreen}
