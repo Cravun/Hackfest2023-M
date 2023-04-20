@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, TextInput, Button, StyleSheet, Text, Alert } from "react-native";
+import { View, TextInput, Button, StyleSheet, Text, Alert, TouchableOpacity } from "react-native";
 import { auth } from "../firebase";
 import { useNavigation, useRoute } from "@react-navigation/native";
 
@@ -50,9 +50,17 @@ const SignUp = () => {
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.text2}>Welcome to SAGIP!</Text>
+    <View style={styles.opencontainer}>
 
+      {/*Header*/}
+      <View style={styles.container}>
+        <Text style={styles.text2}>Welcome to SAGIP!</Text>
+        <Text style={styles.text3}>We are pleased too serve you!
+         Let's get started by creating an account.</Text>
+      </View>
+
+      {/*Input account details*/}
+      {/*Email*/}
       <View>
         <Text style={styles.text1}>Email</Text>
         <TextInput
@@ -64,6 +72,8 @@ const SignUp = () => {
           autoCapitalize="none"
         />
       </View>
+
+      {/*Password*/}
       <View>
         <Text style={styles.text1}>Password</Text>
         <TextInput
@@ -74,10 +84,12 @@ const SignUp = () => {
           secureTextEntry={true}
         />
       </View>
+
+      {/*Confirm Password*/}
       <View>
         <Text style={styles.text1}>Confirm Password</Text>
         <TextInput
-          style={styles.input}
+          style={[styles.input,{marginBottom: 20}]}
           placeholder=""
           onChangeText={(text) => handleInputChange("confirmPassword", text)}
           value={inputValues.confirmPassword}
@@ -85,35 +97,106 @@ const SignUp = () => {
         />
       </View>
 
-      <Button title="Submit" onPress={handleSubmit} />
+      {/*Next Button*/}
+      <TouchableOpacity onPress={handleSubmit}>
+        <View style={[styles.centerall, styles.nextbutton]}> 
+          <Text style={{color: "white"}}>Next</Text>
+        </View>
+      </TouchableOpacity>
+      
+      {/*Already have an account?*/}
+      <View style={[styles.centerall, {paddingVertical: 10}]}>
+        <Text numberOfLines={1}>
+          <Text style={{fontSize: 13}}>Already have an account? </Text>
+            <Text style={{color: "#DD4438", fontSize: 13}} onPress={() => navigation.navigate("SignIn")}>
+              Login Now</Text>
+        </Text>
+      </View>
+
+      {/*Or with*/}
+      <View style={[styles.centerall, {paddingVertical: 10}]}>
+        <Text style={{color: "gray"}}>Or with</Text>
+      </View>
+
+      {/*Sign in with*/}
+      <View style={[styles.centerall,{paddingVertical: 10}]}>
+        {/*Apple*/}
+        <TouchableOpacity>
+          <View style={[styles.centerall, styles.signinwithbutton, {backgroundColor: "black"}]}>
+              <Text style={{fontSize: 15, color: "#fff"}}>
+                Sign in with Apple</Text>
+          </View>
+        </TouchableOpacity>
+
+        {/*Google*/}
+        <TouchableOpacity>
+          <View style={[styles.centerall, styles.signinwithbutton, {backgroundColor: "white", borderWidth: 0.3, marginTop: 10}]}>
+              <Text style={{fontSize: 15,}}>
+                Sign in with Google</Text>
+          </View>
+        </TouchableOpacity>
+
+      </View>
+
+
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
+  opencontainer:{
     flex: 1,
+    paddingHorizontal: 20,
+    paddingVertical: 65,
+  },
+
+  nextbutton:{
+    backgroundColor: "#DD4438", 
+    width: '100%',
+    height: 40, 
+    borderRadius: 10,
+  },
+
+  signinwithbutton:{
+    width: 250,
+    height: 50, 
+    borderRadius: 10,
+  },
+
+  centerall: {
     justifyContent: "center",
     alignItems: "center",
-    padding: 20,
+  },
+
+  container: {
+    justifyContent: "center",
+    alignItems: "center",
   },
   text1: {
     fontSize: 20,
     fontWeight: "600",
   },
   input: {
-    width: 300,
-    height: 48,
-    marginBottom: 20,
+    width: '100%',
+    height: 40,
+    marginBottom: 15,
     padding: 10,
     backgroundColor: "#D9D9D9",
-    borderWidth: 1,
-    borderColor: "#D9D9D9",
   },
+
   text2: {
     fontSize: 32,
     fontWeight: "bold",
+    paddingVertical: 0,
   },
+
+  text3: {
+    fontSize: 13,
+    color: "gray",
+    textAlign: "center",
+    paddingHorizontal: 20,
+    paddingBottom: 30,
+  }
 });
 
 export default SignUp;
