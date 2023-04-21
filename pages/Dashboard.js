@@ -87,23 +87,23 @@ export default function Dashboard() {
 
         {/*Meet Ana*/}
         <Text style={[styles.setFontSizeThree, styles.setColor, { paddingVertical: 20 }]}>
-          Meet Ana </Text>
+          Meet Taylor </Text>
         
           <View style={{ alignItems: "center", justifyContent: "center" }}>
-            <Image source={{width: 320, height: 160,
-                uri: "https://images.unsplash.com/photo-1507250671672-b76f9dde4188?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
-              }}/>
+            <Image style={{width: 320, height: 160,}} source={require("../assets/MeetTaylor.png")}/>
+
 
             <Text numberOfLines={4} style={{paddingTop: 5, textAlign: "justify",
                 width: 345, lineHeight: 20, color: "#434343", fontSize: 13,
                 paddingHorizontal: 10,}}>
               <Text>
-                Ana is a 9-year old girl suffering from anemia due to
+                Taylor is a 9-year old girl suffering from anemia due to
                 disease-modifying treatments, such as chemotherapy for cancer.
-                Take part in keeping Ana’s smile shine the world.
-                <TouchableOpacity onPress={() => navigation.navigate("Donate")}>
-                  <Text style={styles.Ana}>Donate for people like Ana.</Text>
-                </TouchableOpacity>
+                Take part in keeping Taylor’s smile shine the world. {" "}
+
+                  <Text style={styles.Ana} onPress={() => navigation.navigate("Donate")}>
+                    Donate for people like Taylor.</Text>
+
               </Text>
             </Text>
           </View>
