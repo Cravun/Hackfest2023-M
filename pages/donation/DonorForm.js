@@ -25,6 +25,7 @@ export default function DonorForm() {
     Street_Address: "",
     Email: "",
     Phone_Number: "",
+    DonatedPreviously: "",
   });
 
   const RequestCollectionRef = collection(db, "Donor Form");
@@ -53,14 +54,6 @@ export default function DonorForm() {
     }
     if (String(InputValues.RelationshipStatus).trim() === "") {
       alert("Status is required");
-    }
-    if (
-      !isNameValid(InputValues.FirstName) ||
-      !isNameValid(InputValues.MiddleName) ||
-      !isNameValid(InputValues.LastName)
-    ) {
-      alert("Please Enter a Valid Name");
-      return;
     }
     // Submit form data
   };
@@ -119,144 +112,197 @@ export default function DonorForm() {
     }
   };
 
+  const ValidateForm = () => {
+    return Object.values(InputValues).every(
+      (value) => value !== "" && value !== 0
+    );
+  };
+
   return (
-    <ScrollView style={styles.opencontainer}>
-      <Text style={styles.mainheader}>Personal Information Confirmation:</Text>
+    <>
+      {InputValues.Step === 1 && (
+        <ScrollView style={styles.opencontainer}>
+          <Text style={styles.mainheader}>
+            Personal Information Confirmation:
+          </Text>
 
-      <Text style={styles.subheader}>Confirm your personal information</Text>
+          <Text style={styles.subheader}>
+            Confirm your personal information
+          </Text>
 
+          <Text style={styles.inputheader}>First name</Text>
+          <TextInput
+            style={styles.input}
+            key="firstName"
+            value={InputValues.FirstName}
+            onChangeText={(value) => handleInputChange("FirstName", value)}
+          />
 
-      <Text style={styles.inputheader}>First name</Text>
-      <TextInput style={styles.input}
-        key="firstName"
-        value={InputValues.FirstName}
-        onChangeText={(value) => handleInputChange("FirstName", value)}
-      />
+          <Text style={styles.inputheader}>Middle name</Text>
+          <TextInput
+            style={styles.input}
+            key="middleName"
+            value={InputValues.MiddleName}
+            onChangeText={(value) => handleInputChange("MiddleName", value)}
+          />
 
-      <Text style={styles.inputheader}>Middle name</Text>
-      <TextInput style={styles.input}
-        key="middleName"
-        value={InputValues.MiddleName}
-        onChangeText={(value) => handleInputChange("MiddleName", value)}
-      />
+          <Text style={styles.inputheader}>Last name</Text>
+          <TextInput
+            style={styles.input}
+            key="LastName"
+            value={InputValues.LastName}
+            onChangeText={(value) => handleInputChange("LastName", value)}
+          />
 
-      <Text style={styles.inputheader}>Last name</Text>
-      <TextInput style={styles.input}
-        key="LastName"
-        value={InputValues.LastName}
-        onChangeText={(value) => handleInputChange("LastName", value)}
-      />
+          <Text style={styles.inputheader}>Date of birth</Text>
+          <TextInput
+            style={styles.input}
+            key="dateOfBirth"
+            value={InputValues.DateofBirth}
+            onChangeText={(value) => handleInputChange("DateofBirth", value)}
+          />
 
-      <Text style={styles.inputheader}>Date of birth</Text> 
-      <TextInput style={styles.input}
-        key="dateOfBirth"
-        value={InputValues.DateofBirth}
-        onChangeText={(value) => handleInputChange("DateofBirth", value)}
-      />
+          <Text style={styles.inputheader}>Country</Text>
+          <TextInput
+            style={styles.input}
+            key="country"
+            value={InputValues.Country}
+            onChangeText={(value) => handleInputChange("Country", value)}
+          />
 
-      <Text style={styles.inputheader}>Country</Text>
-      <TextInput style={styles.input}
-        key="country"
-        value={InputValues.Country}
-        onChangeText={(value) => handleInputChange("Country", value)}
-      />
+          <Text style={styles.inputheader}>City</Text>
+          <TextInput
+            style={styles.input}
+            key="city"
+            value={InputValues.City}
+            onChangeText={(value) => handleInputChange("City", value)}
+          />
 
-      <Text style={styles.inputheader}>City</Text>
-      <TextInput style={styles.input}
-        key="city"
-        value={InputValues.City}
-        onChangeText={(value) => handleInputChange("City", value)}
-      />
+          <Text style={styles.inputheader}>Province</Text>
+          <TextInput
+            style={styles.input}
+            value={InputValues.Province}
+            onChangeText={(value) => handleInputChange("Province", value)}
+          />
 
-      <Text style={styles.inputheader}>Province</Text>
-      <TextInput style={styles.input}
-        value={InputValues.Province}
-        onChangeText={(value) => handleInputChange("Province", value)}
-      />
+          <Text style={styles.inputheader}>Street address</Text>
+          <TextInput
+            style={styles.input}
+            value={InputValues.Street_Address}
+            onChangeText={(value) => handleInputChange("Street_Address", value)}
+          />
 
-      <Text style={styles.inputheader}>Street address</Text>
-      <TextInput style={styles.input}
-        value={InputValues.Street_Address}
-        onChangeText={(value) => handleInputChange("Street_Address", value)}
-      />
+          <Text
+            style={[styles.subheader, { color: "#DD4438", paddingTop: 20 }]}
+          >
+            Contact Information
+          </Text>
 
-        <Text style={[styles.subheader,{color: "#DD4438", paddingTop: 20}]}>
-          Contact Information
-        </Text>
+          <Text style={styles.inputheader}>Email</Text>
+          <TextInput
+            style={styles.input}
+            value={InputValues.Email}
+            onChangeText={(value) => handleInputChange("Email", value)}
+          />
 
-        <Text style={styles.inputheader}>Email</Text>
-        <TextInput style={styles.input}
-          value={InputValues.Email}
-          onChangeText={(value) => handleInputChange("Email", value)}
-        />
+          <Text style={styles.inputheader}>Phone number</Text>
+          <TextInput
+            style={styles.input}
+            value={InputValues.Phone_Number}
+            onChangeText={(value) => handleInputChange("Phone_Number", value)}
+          />
 
-        <Text style={styles.inputheader}>Phone number</Text>
-        <TextInput style={styles.input}
-          value={InputValues.Phone_Number}
-          onChangeText={(value) => handleInputChange("Phone_Number", value)}
-        />
+          <View style={{ width: "100%", height: 30 }} />
 
-      <View style={{width: '100%', height: 30}}/>
+          <View
+            style={{ flexDirection: "row", justifyContent: "space-between" }}
+          >
+            {/*Next button*/}
+            <TouchableOpacity onPress={handleNextStep}>
+              <View
+                style={[
+                  styles.centerall,
+                  {
+                    backgroundColor: "#DD4438",
+                    borderRadius: 10,
+                    width: 200,
+                    height: 35,
+                  },
+                ]}
+              >
+                <Text style={{ color: "white" }}>Next question</Text>
+              </View>
+            </TouchableOpacity>
+          </View>
 
-      <View style={{flexDirection: "row", justifyContent: "space-between"}}>
-        {/*Back button*/}
-        <TouchableOpacity>
-          <View style={[styles.centerall,{borderColor: '#DD4438', borderWidth: 0.5, 
-                        borderRadius: 10, width: 100, height: 35}]}>
-            <Text style={{color: '#DD4438'}}>
-              Back</Text>
+          <View style={{ width: "100%", height: 110 }} />
+        </ScrollView>
+      )}
+      {InputValues.Step === 2 && (
+        <>
+          <Text style={styles.inputheader}>Phone number</Text>
+          <TextInput
+            style={styles.input}
+            value={InputValues.Phone_Number}
+            onChangeText={(value) => handleInputChange("Phone_Number", value)}
+          />
+
+          {/*Back button*/}
+          <TouchableOpacity onPress={handlePrevStep}>
+            <View
+              style={[
+                styles.centerall,
+                {
+                  borderColor: "#DD4438",
+                  borderWidth: 0.5,
+                  borderRadius: 10,
+                  width: 100,
+                  height: 35,
+                },
+              ]}
+            >
+              <Text style={{ color: "#DD4438" }}>Back</Text>
             </View>
-        </TouchableOpacity>
-
-        {/*Next button*/}
-        <TouchableOpacity onPress={handleNextStep}>
-            <View style={[styles.centerall, {backgroundColor: '#DD4438',
-                        borderRadius: 10, width: 200, height: 35}]}>
-            <Text style={{color: "white"}}>
-              Next question</Text>
-            </View>
-        </TouchableOpacity>
-      </View>
-
-      <View style={{width: '100%', height: 110}}/>
-
-    </ScrollView>
+          </TouchableOpacity>
+        </>
+      )}
+    </>
   );
 }
 
 const styles = StyleSheet.create({
-  opencontainer:{
+  opencontainer: {
     flex: 1,
     paddingHorizontal: 20,
     paddingVertical: 65,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
   },
 
-  centerall:{
+  centerall: {
     justifyContent: "center",
     alignItems: "center",
   },
 
-  input:{
-    width: '100%',
+  input: {
+    width: "100%",
     height: 40,
-    backgroundColor: '#D3D3D3',
+    backgroundColor: "#D3D3D3",
     marginBottom: 10,
     paddingLeft: 10,
   },
 
-  mainheader:{
+  mainheader: {
     fontSize: 25,
     fontWeight: "600",
     paddingBottom: 12,
   },
 
-  subheader:{
+  subheader: {
     fontSize: 15,
     paddingBottom: 12,
   },
 
-  inputheader:{
+  inputheader: {
     fontSize: 15,
     paddingBottom: 2,
   },
