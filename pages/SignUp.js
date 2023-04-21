@@ -10,13 +10,11 @@ import {
 } from "react-native";
 import { auth, db } from "../firebase";
 import { useNavigation, useRoute } from "@react-navigation/native";
-import { addDoc, collection, updateDoc } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
 
 const SignUp = () => {
   const navigation = useNavigation();
   const route = useRoute();
-
-  const RequestCollectionRef = collection(db, "User");
 
   const EMAIL_REGEX = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
   const PASSWORD_REGEX = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
@@ -60,16 +58,14 @@ const SignUp = () => {
       .then((userCredential) => {
         const user = userCredential.user;
         Alert.alert("Success", "Account created successfully");
-        db.collection(`Users/${user.uid}`)
-          .doc("profile")
-          .set({
-            FirstName: inputValues.FirstName,
-            LastName: inputValues.LastName,
-            MiddleName: inputValues.MiddleName,
-            Email: inputValues.email,
-            Password: inputValues.password,
-            UserID: user.uid,
-          })
+        const docRef = doc(db, "Users", user.uid);
+        setDoc(docRef, {
+          FirstName: inputValues.FirstName,
+          LastName: inputValues.LastName,
+          MiddleName: inputValues.MiddleName,
+          Email: inputValues.email,
+          UserID: user.uid,
+        })
           .then(() => {
             console.log("User data added to Firestore.");
             navigation.navigate("SignIn");

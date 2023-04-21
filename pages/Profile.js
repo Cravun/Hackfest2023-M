@@ -12,6 +12,7 @@ import {
 import AccountSetting from "./AccountSetting";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import firebase from "firebase/compat";
+import { getDoc } from "firebase/firestore";
 
 export default function Profile() {
   const navigation = useNavigation();
@@ -84,7 +85,7 @@ export default function Profile() {
               { paddingVertical: 5, fontWeight: "bold" },
             ]}
           >
-            {firebase.auth().currentUser.email}
+            {firebase.auth().currentUser.uid}
           </Text>
           <Text style={styles1.setFontSizeOne}>Location</Text>
         </View>
