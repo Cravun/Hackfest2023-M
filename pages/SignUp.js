@@ -59,6 +59,7 @@ const SignUp = () => {
 
   return (
     <View style={styles.opencontainer}>
+      
       {/*Header*/}
       <View style={styles.container}>
         <Text style={styles.text2}>Welcome to SAGIP!</Text>
@@ -118,7 +119,7 @@ const SignUp = () => {
       {/*Already have an account?*/}
       <View style={[styles.centerall, { paddingVertical: 10 }]}>
         <Text numberOfLines={1}>
-          <Text style={{ fontSize: 13 }}>Already have an account? </Text>
+          <Text style={{ fontSize: 14 }}>Already have an account? </Text>
           <Text
             style={{ color: "#DD4438", fontSize: 13 }}
             onPress={() => navigation.navigate("SignIn")}
@@ -129,33 +130,15 @@ const SignUp = () => {
       </View>
 
       {/* Or with */}
-      <View
-        style={{
-          borderBottomColor: "black",
-          borderBottomWidth: 1,
-          paddingBottom: 10,
-          marginVertical: 10,
-          width: 342,
-        }}
-      >
-        <Text
-          style={{
-            justifyContent: "center",
-            alignItems: "center",
-            textAlign: "center",
-            zIndex: 1,
-            position: "relative",
-            backgroundColor: "#FFFFFF",
-            width: 100,
-            top: 70,
-            left: "50%",
-            transform: [{ translateX: -50 }, { translateY: -50 }],
-          }}
-        >
+      <View style={styles.orwith}>
+        <Text style={{justifyContent: "center", alignItems: "center",textAlign: "center",
+              backgroundColor: "#FFFFFF", width: 100, top: 70, left: "50%",
+              transform: [{ translateX: -50 }, { translateY: -50 }],}}>
           Or with
         </Text>
       </View>
 
+      <View style={{width: '100%', height: 20}}/>
       {/*Sign in with*/}
       <View style={[styles.centerall, { paddingVertical: 10 }]}>
         {/*Apple*/}
@@ -193,17 +176,15 @@ const SignUp = () => {
 const styles = StyleSheet.create({
   opencontainer: {
     flex: 1,
-    backgroundColor: "#FFFFFF",
-    justifyContent: "center",
-    alignItems: "center",
+    backgroundColor: "#fff",
     paddingHorizontal: 20,
     paddingVertical: 65,
   },
 
   nextbutton: {
     backgroundColor: "#DD4438",
-    width: 342,
-    height: 56,
+    width: '100%',
+    height: 40,
     borderRadius: 10,
   },
 
@@ -211,6 +192,14 @@ const styles = StyleSheet.create({
     width: 300,
     height: 44,
     borderRadius: 10,
+  },
+
+  orwith:{borderBottomColor: "black",
+  borderBottomWidth: 1,
+  paddingBottom: 10,
+  marginVertical: 10,
+  width: '100%',
+
   },
 
   centerall: {
@@ -227,8 +216,8 @@ const styles = StyleSheet.create({
     fontWeight: "600",
   },
   input: {
-    width: 342,
-    height: 56,
+    width: '100%',
+    height: 40,
     marginBottom: 15,
     padding: 10,
     backgroundColor: "#D9D9D9",
@@ -241,11 +230,11 @@ const styles = StyleSheet.create({
   },
 
   text3: {
-    fontSize: 13,
+    fontSize: 14,
     color: "gray",
     textAlign: "center",
     paddingHorizontal: 20,
-    paddingBottom: 30,
+    paddingBottom: 20,
   },
 });
 
