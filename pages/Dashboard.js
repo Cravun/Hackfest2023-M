@@ -85,35 +85,18 @@ export default function Dashboard() {
           </TouchableOpacity>
         </View>
 
-        <Text
-          style={[
-            (styles.setFontSizeTwo, styles.setColor, { paddingVertical: 10 }),
-          ]}
-        >
-          Meet Ana
-        </Text>
-        <View>
+        {/*Meet Ana*/}
+        <Text style={[styles.setFontSizeThree, styles.setColor, { paddingVertical: 20 }]}>
+          Meet Ana </Text>
+        
           <View style={{ alignItems: "center", justifyContent: "center" }}>
-            <Image
-              source={{
-                width: 320,
-                height: 160,
+            <Image source={{width: 320, height: 160,
                 uri: "https://images.unsplash.com/photo-1507250671672-b76f9dde4188?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
-              }}
-            />
+              }}/>
 
-            <Text
-              numberOfLines={4}
-              style={{
-                paddingTop: 5,
-                textAlign: "justify",
-                width: 345,
-                lineHeight: 20,
-                color: "#434343",
-                fontSize: 13,
-                paddingHorizontal: 10,
-              }}
-            >
+            <Text numberOfLines={4} style={{paddingTop: 5, textAlign: "justify",
+                width: 345, lineHeight: 20, color: "#434343", fontSize: 13,
+                paddingHorizontal: 10,}}>
               <Text>
                 Ana is a 9-year old girl suffering from anemia due to
                 disease-modifying treatments, such as chemotherapy for cancer.
@@ -124,38 +107,26 @@ export default function Dashboard() {
               </Text>
             </Text>
           </View>
-        </View>
+        
+        <View style={{width: '100%', height: 20}}/>
 
-        <View
-          style={{
-            width: "95%",
-            justifyContent: "space-between",
-            alignItems: "baseline",
-            flexDirection: "row",
-          }}
-        >
+        {/*Learn*/}
+        <View style={{width: "100%", justifyContent: "space-between",
+                  flexDirection: "row",}}>
           <View>
-            <Text
-              style={[
-                styles.setFontSizeTwo,
-                {
-                  paddingTop: 8,
-                  paddingBottom: 5,
-                  alignItems: "flex-start",
-                  color: "#434343",
-                },
-              ]}
-              numberOfLines={1}
-            >
-              Learn
-            </Text>
+            <Text style={[styles.setFontSizeThree,
+                {paddingTop: 8, paddingBottom: 5, alignItems: "flex-start", color: "#434343",},
+              ]} numberOfLines={1}>
+              Learn</Text>
           </View>
 
-          <TouchableOpacity onPress={() => navigation.navigate("Learn")}>
-            <View style={{ alignItems: "flex-end" }}>
-              <Text>See more</Text>
-            </View>
-          </TouchableOpacity>
+            
+
+            <TouchableOpacity onPress={() => navigation.navigate("Learn")}> 
+              <Image style={{ width: 45, height: 45, transform: [{ scaleX: -1 }]}}
+              source={require("../assets/BackButton.png")}/>
+              {/*<Text style={{fontSize: 15}}>See more</Text>*/}
+            </TouchableOpacity>
         </View>
 
         <View style={{ alignItems: "center", justifyContent: "center" }}>

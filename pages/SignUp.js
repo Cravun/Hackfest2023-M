@@ -316,12 +316,12 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
 
-  orwith:{borderBottomColor: "black",
-  borderBottomWidth: 1,
-  paddingBottom: 10,
-  marginVertical: 10,
-  width: '100%',
-
+  orwith:{
+    borderBottomColor: "black",
+    borderBottomWidth: 1,
+    paddingBottom: 10,
+    marginVertical: 10,
+    width: '100%',
   },
 
   centerall: {

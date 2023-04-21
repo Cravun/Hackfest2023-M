@@ -55,31 +55,16 @@ const SignIn = () => {
   };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.container2}>
+    <View style={styles.opencontainer}>
+      <View style={styles.container}>
         <Text style={styles.text2}>Welcome back! </Text>
-        <Text
-          style={{
-            opacity: 0.5,
-            fontSize: 13,
-            color: "gray",
-            textAlign: "center",
-            paddingHorizontal: 20,
-          }}
-        >
-          We have missed you! Enter your credentials
-        </Text>
-        <Text
-          style={{
-            opacity: 0.5,
-            fontSize: 13,
-            color: "gray",
-            textAlign: "center",
-            paddingHorizontal: 20,
-          }}
-        >
-          to sign in to Sagip.
-        </Text>
+        <Text style={{opacity: 0.5, fontSize: 13, color: "gray",
+            textAlign: "center", paddingHorizontal: 20,}}>
+          We have missed you! Enter your credentials</Text>
+
+        <Text style={{opacity: 0.5, fontSize: 13, color: "gray", textAlign: "center",
+            paddingHorizontal: 20,}}>
+          to sign in to Sagip.</Text>
       </View>
 
       {/* Email Place holder */}
@@ -107,9 +92,11 @@ const SignIn = () => {
         />
       </View>
 
+      <View style={{width: '100%', height: 5}}/>
+
       {/* Sign In Button */}
       <TouchableOpacity onPress={handleSubmit}>
-        <View style={[styles.centerall, styles.nextbutton]}>
+        <View style={[styles.centerall, styles.nextbutton,]}>
           <Text style={{ color: "white", fontSize: 17, fontWeight: "700" }}>
             Sign In
           </Text>
@@ -119,43 +106,23 @@ const SignIn = () => {
       {/* Dont Have an Account yet? */}
       <View style={[styles.centerall, { paddingVertical: 10 }]}>
         <Text numberOfLines={1}>
-          <Text style={{ fontSize: 13 }}>Don’t have an account?</Text>
-          <Text
-            style={{ color: "#DD4438", fontSize: 13 }}
-            onPress={() => navigation.navigate("SignUp")}
-          >
-            Register Now
+          <Text style={{ fontSize: 13 }}>Don’t have an account? </Text>
+            <Text style={{ color: "#DD4438", fontSize: 13 }}
+              onPress={() => navigation.navigate("SignUp")}>
+              Register Now</Text>
           </Text>
-        </Text>
       </View>
 
       {/* Or with */}
-      <View
-        style={{
-          borderBottomColor: "black",
-          borderBottomWidth: 1,
-          paddingBottom: 10,
-          marginVertical: 10,
-          width: 342,
-        }}
-      >
-        <Text
-          style={{
-            justifyContent: "center",
-            alignItems: "center",
-            textAlign: "center",
-            zIndex: 1,
-            position: "relative",
-            backgroundColor: "#FFFFFF",
-            width: 100,
-            top: 70,
-            left: "50%",
-            transform: [{ translateX: -50 }, { translateY: -50 }],
-          }}
-        >
+      <View style={styles.orwith}>
+        <Text style={{justifyContent: "center", alignItems: "center",textAlign: "center",
+              backgroundColor: "#FFFFFF", width: 100, top: 70, left: "50%",
+              transform: [{ translateX: -50 }, { translateY: -50 }],}}>
           Or with
         </Text>
       </View>
+      
+      <View style={{width: '100%', height: 20}}/>
 
       {/*Sign in with*/}
       <View style={[styles.centerall, { paddingVertical: 10 }]}>
@@ -192,25 +159,24 @@ const SignIn = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {
+  opencontainer: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#FFFFFF",
+    backgroundColor: "#fff",
+    paddingHorizontal: 20,
+    paddingVertical: 65,
   },
-  container2: {
+
+  container: {
     justifyContent: "center",
     alignItems: "center",
-    paddingBottom: 60,
+    paddingBottom: 20,
   },
   input: {
-    width: 342,
-    height: 54,
+    width: '100%',
+    height: 40,
     marginBottom: 20,
     padding: 10,
     backgroundColor: "#D9D9D9",
-    borderWidth: 1,
-    borderColor: "#D9D9D9",
   },
   text1: {
     fontSize: 20,
@@ -219,8 +185,7 @@ const styles = StyleSheet.create({
   nextbutton: {
     backgroundColor: "#DD4438",
     width: "100%",
-    width: 342,
-    height: 54,
+    height: 50,
     borderRadius: 10,
   },
   centerall: {
@@ -234,8 +199,8 @@ const styles = StyleSheet.create({
   },
   buttonSubmit: {
     backgroundColor: "#DD4438",
-    width: 342,
-    height: 54,
+    width: '100%',
+    height: 40,
   },
   buttonText: {
     color: "#FFFFFF",
@@ -244,6 +209,13 @@ const styles = StyleSheet.create({
   },
   DontHaveanAccount: {
     paddingTop: 50,
+  },
+  orwith:{
+    borderBottomColor: "black",
+    borderBottomWidth: 1,
+    paddingBottom: 10,
+    marginVertical: 10,
+    width: '100%',
   },
   signinwithbutton: {
     width: 300,
