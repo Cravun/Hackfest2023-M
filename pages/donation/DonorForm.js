@@ -13,6 +13,7 @@ import { collection, addDoc } from "firebase/firestore";
 
 export default function DonorForm() {
   const [InputValues, setInputValues] = useState({
+    Step: 1,
     FirstName: "",
     MiddleName: "",
     LastName: "",
@@ -75,6 +76,46 @@ export default function DonorForm() {
     addDoc(RequestCollectionRef, InputValues).then(() => {
       alert("Form Submitted Successfully");
     });
+    if (String(InputValues.FirstName).trim() === "") {
+      alert("First Name is required");
+      return;
+    }
+    if (String(InputValues.LastName).trim() === "") {
+      alert("Last Name is required");
+      return;
+    }
+    if (String(InputValues.MiddleName).trim() === "") {
+      alert("Middle Name is required");
+      return;
+    }
+    if (String(InputValues.DateofBirth).trim() === "") {
+      alert("Date of Birth is required");
+      return;
+    }
+    if (String(InputValues.Country).trim() === "") {
+      alert("Country is required");
+      return;
+    }
+    if (String(InputValues.City).trim() === "") {
+      alert("City is required");
+      return;
+    }
+    if (String(InputValues.Province).trim() === "") {
+      alert("Province is required");
+      return;
+    }
+    if (String(InputValues.Street_Address).trim() === "") {
+      alert("Street Address is required");
+      return;
+    }
+    if (String(InputValues.Email).trim() === "") {
+      alert("Email is required");
+      return;
+    }
+    if (String(InputValues.Phone_Number).trim() === "") {
+      alert("Phone Number is required");
+      return;
+    }
   };
 
   return (
@@ -142,7 +183,7 @@ export default function DonorForm() {
         />
       </View>
 
-      <Button title="Submit" onPress={HandleSubmit} />
+      <Button title="Next" onPress={handleNextStep} />
     </View>
   );
 }

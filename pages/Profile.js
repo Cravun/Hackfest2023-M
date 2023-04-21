@@ -12,11 +12,18 @@ import {
 import AccountSetting from "./AccountSetting";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import firebase from "firebase/compat";
-import { getDoc } from "firebase/firestore";
+import { doc } from "firebase/firestore";
+import { db } from "../firebase";
 
-export default function Profile() {
+export default async function Profile() {
   const navigation = useNavigation();
   const route = useRoute();
+
+  // User Profile
+  const docRef = doc(db, "users", firebase.auth().currentUser.uid);
+  const docSnap = await getDoc(docRef);
+  docSnap.data();
+
   return (
     <ScrollView style={{ paddingTop: 50, flex: 1 }}>
       <View style={{ paddingHorizontal: 20 }}>
@@ -85,7 +92,8 @@ export default function Profile() {
               { paddingVertical: 5, fontWeight: "bold" },
             ]}
           >
-            {firebase.auth().currentUser.uid}
+            {/* Name here */}
+            {firebase.auth().currentUser.displayName}
           </Text>
           <Text style={styles1.setFontSizeOne}>Location</Text>
         </View>

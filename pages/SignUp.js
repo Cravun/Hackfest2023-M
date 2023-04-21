@@ -118,7 +118,6 @@ const SignUp = () => {
 
   return (
     <View style={styles.opencontainer}>
-      
       {/*Header*/}
       <View style={styles.container}>
         <Text style={styles.text2}>Welcome to SAGIP!</Text>
@@ -253,14 +252,23 @@ const SignUp = () => {
 
       {/* Or with */}
       <View style={styles.orwith}>
-        <Text style={{justifyContent: "center", alignItems: "center",textAlign: "center",
-              backgroundColor: "#FFFFFF", width: 100, top: 70, left: "50%",
-              transform: [{ translateX: -50 }, { translateY: -50 }],}}>
+        <Text
+          style={{
+            justifyContent: "center",
+            alignItems: "center",
+            textAlign: "center",
+            backgroundColor: "#FFFFFF",
+            width: 100,
+            top: 70,
+            left: "50%",
+            transform: [{ translateX: -50 }, { translateY: -50 }],
+          }}
+        >
           Or with
         </Text>
       </View>
 
-      <View style={{width: '100%', height: 20}}/>
+      <View style={{ width: "100%", height: 20 }} />
       {/*Sign in with*/}
       <View style={[styles.centerall, { paddingVertical: 10 }]}>
         {/*Apple*/}
@@ -305,7 +313,7 @@ const styles = StyleSheet.create({
 
   nextbutton: {
     backgroundColor: "#DD4438",
-    width: '100%',
+    width: "100%",
     height: 40,
     borderRadius: 10,
   },
@@ -316,12 +324,12 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
 
-  orwith:{
+  orwith: {
     borderBottomColor: "black",
     borderBottomWidth: 1,
     paddingBottom: 10,
     marginVertical: 10,
-    width: '100%',
+    width: "100%",
   },
 
   centerall: {
@@ -338,7 +346,7 @@ const styles = StyleSheet.create({
     fontWeight: "600",
   },
   input: {
-    width: '100%',
+    width: "100%",
     height: 40,
     marginBottom: 15,
     padding: 10,
