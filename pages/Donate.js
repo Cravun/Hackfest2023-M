@@ -112,7 +112,7 @@ export default function Donate() {
             paddingBottom: 10,
             fontWeight: "600",
             position: "relative",
-            right: 100,
+            right: "25%",
           }}
         >
           Your Past Donations

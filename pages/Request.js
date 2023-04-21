@@ -113,7 +113,7 @@ export default function Request() {
             paddingBottom: 10,
             fontWeight: "600",
             position: "relative",
-            right: 100,
+            right: "25%",
           }}
         >
           Your Past Requests
