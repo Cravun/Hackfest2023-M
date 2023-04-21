@@ -8,8 +8,9 @@ import {
   Alert,
   TouchableOpacity,
 } from "react-native";
-import { auth } from "../firebase";
+import { auth, db } from "../firebase";
 import { useNavigation, useRoute } from "@react-navigation/native";
+import { doc, setDoc } from "firebase/firestore";
 
 const SignUp = () => {
   const navigation = useNavigation();
@@ -22,6 +23,11 @@ const SignUp = () => {
     email: "",
     password: "",
     confirmPassword: "",
+    FirstName: "",
+    LastName: "",
+    MiddleName: "",
+    step: 1,
+    UserID: "",
   });
 
   const handleInputChange = (name, value) => {
@@ -52,9 +58,62 @@ const SignUp = () => {
       .then((userCredential) => {
         const user = userCredential.user;
         Alert.alert("Success", "Account created successfully");
-        navigation.navigate("SignIn");
+        const docRef = doc(db, "Users", user.uid);
+        setDoc(docRef, {
+          FirstName: inputValues.FirstName,
+          LastName: inputValues.LastName,
+          MiddleName: inputValues.MiddleName,
+          Email: inputValues.email,
+          UserID: user.uid,
+        })
+          .then(() => {
+            console.log("User data added to Firestore.");
+            navigation.navigate("SignIn");
+          })
+          .catch((error) => {
+            console.error("Error adding user data to Firestore:", error);
+          });
       })
-      .catch((error) => alert(error.message));
+      .catch((error) => {
+        console.error("Error creating account:", error);
+        Alert.alert("Error", error.message);
+      });
+  };
+
+  const handleNextStep = () => {
+    if (inputValues.step === 1) {
+      if (!EMAIL_REGEX.test(inputValues.email)) {
+        Alert.alert("Invalid Email", "Please enter a valid email address");
+        return;
+      }
+      if (!PASSWORD_REGEX.test(inputValues.password)) {
+        Alert.alert(
+          "Invalid Password",
+          "Password must be at least 8 characters long and contain at least one letter and one number"
+        );
+        return;
+      }
+      if (inputValues.password !== inputValues.confirmPassword) {
+        Alert.alert(
+          "Passwords do not match",
+          "Please enter matching passwords"
+        );
+        return;
+      }
+      setInputValues({
+        ...inputValues,
+        step: 2,
+      });
+    }
+  };
+
+  const handlePreviousStep = () => {
+    if (inputValues.step === 2) {
+      setInputValues({
+        ...inputValues,
+        step: 1,
+      });
+    }
   };
 
   return (
@@ -68,53 +127,116 @@ const SignUp = () => {
           Account.
         </Text>
       </View>
-
       {/*Input account details*/}
-      {/*Email*/}
-      <View>
-        <Text style={styles.text1}>Email</Text>
-        <TextInput
-          style={styles.input}
-          placeholder=""
-          onChangeText={(text) => handleInputChange("email", text)}
-          value={inputValues.email}
-          keyboardType="email-address"
-          autoCapitalize="none"
-        />
-      </View>
+      {inputValues.step === 1 && (
+        <>
+          {/*Email*/}
+          <View>
+            <Text style={styles.text1}>Email</Text>
+            <TextInput
+              style={styles.input}
+              placeholder=""
+              onChangeText={(text) => handleInputChange("email", text)}
+              value={inputValues.email}
+              keyboardType="email-address"
+              autoCapitalize="none"
+            />
+          </View>
 
-      {/*Password*/}
-      <View>
-        <Text style={styles.text1}>Password</Text>
-        <TextInput
-          style={styles.input}
-          placeholder=""
-          onChangeText={(text) => handleInputChange("password", text)}
-          value={inputValues.password}
-          secureTextEntry={true}
-        />
-      </View>
+          {/*Password*/}
+          <View>
+            <Text style={styles.text1}>Password</Text>
+            <TextInput
+              style={styles.input}
+              placeholder=""
+              onChangeText={(text) => handleInputChange("password", text)}
+              value={inputValues.password}
+              secureTextEntry={true}
+            />
+          </View>
 
-      {/*Confirm Password*/}
-      <View>
-        <Text style={styles.text1}>Confirm Password</Text>
-        <TextInput
-          style={[styles.input, { marginBottom: 20 }]}
-          placeholder=""
-          onChangeText={(text) => handleInputChange("confirmPassword", text)}
-          value={inputValues.confirmPassword}
-          secureTextEntry={true}
-        />
-      </View>
+          {/*Confirm Password*/}
+          <View>
+            <Text style={styles.text1}>Confirm Password</Text>
+            <TextInput
+              style={[styles.input, { marginBottom: 20 }]}
+              placeholder=""
+              onChangeText={(text) =>
+                handleInputChange("confirmPassword", text)
+              }
+              value={inputValues.confirmPassword}
+              secureTextEntry={true}
+            />
+          </View>
 
-      {/*Next Button*/}
-      <TouchableOpacity onPress={handleSubmit}>
-        <View style={[styles.centerall, styles.nextbutton]}>
-          <Text style={{ color: "white", fontSize: 17, fontWeight: "700" }}>
-            Next
-          </Text>
-        </View>
-      </TouchableOpacity>
+          {/*Next Button*/}
+          <TouchableOpacity onPress={handleNextStep}>
+            <View style={[styles.centerall, styles.nextbutton]}>
+              <Text style={{ color: "white", fontSize: 17, fontWeight: "700" }}>
+                Next
+              </Text>
+            </View>
+          </TouchableOpacity>
+        </>
+      )}
+
+      {inputValues.step === 2 && (
+        <>
+          {/*First Name*/}
+          <View>
+            <Text style={styles.text1}>First Name:</Text>
+            <TextInput
+              style={[styles.input, { marginBottom: 20 }]}
+              placeholder=""
+              onChangeText={(text) => handleInputChange("FirstName", text)}
+              value={inputValues.FirstName}
+            />
+          </View>
+
+          {/*Last Name*/}
+          <View>
+            <Text style={styles.text1}>Last Name:</Text>
+            <TextInput
+              style={[styles.input, { marginBottom: 20 }]}
+              placeholder=""
+              onChangeText={(text) => handleInputChange("LastName", text)}
+              value={inputValues.LastName}
+            />
+          </View>
+
+          {/*Last Name*/}
+          <View>
+            <Text style={styles.text1}>Middle Name:</Text>
+            <TextInput
+              style={[styles.input, { marginBottom: 20 }]}
+              placeholder=""
+              onChangeText={(text) => handleInputChange("MiddleName", text)}
+              value={inputValues.MiddleName}
+            />
+          </View>
+
+          {/*Back Button*/}
+          <TouchableOpacity
+            onPress={handlePreviousStep}
+            style={{ marginBottom: 20 }}
+          >
+            <View style={[styles.centerall, styles.nextbutton]}>
+              <Text style={{ color: "white", fontSize: 17, fontWeight: "700" }}>
+                Back
+              </Text>
+            </View>
+          </TouchableOpacity>
+
+          {/*Sign Up Button*/}
+          <TouchableOpacity onPress={handleSubmit}>
+            <View style={[styles.centerall, styles.nextbutton]}>
+              <Text style={{ color: "white", fontSize: 17, fontWeight: "700" }}>
+                Sign Up
+              </Text>
+            </View>
+          </TouchableOpacity>
+        </>
+      )}
 
       {/*Already have an account?*/}
       <View style={[styles.centerall, { paddingVertical: 10 }]}>

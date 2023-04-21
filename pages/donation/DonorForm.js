@@ -8,7 +8,6 @@ import {
   TouchableOpacity,
   StyleSheet,
 } from "react-native";
-import { Picker } from "@react-native-picker/picker";
 import { db } from "../../firebase";
 import { collection, addDoc } from "firebase/firestore";
 
