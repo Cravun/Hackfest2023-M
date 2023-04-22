@@ -264,6 +264,25 @@ export default function DonorForm() {
               <Text style={{ color: "#DD4438" }}>Back</Text>
             </View>
           </TouchableOpacity>
+
+          {/*Submit Button*/}
+          <TouchableOpacity onPress={HandleSubmit}>
+            <View
+              style={[
+                styles.centerall,
+                {
+                  position: "relative",
+                  top: 20,
+                  backgroundColor: "#DD4438",
+                  borderRadius: 10,
+                  width: 200,
+                  height: 35,
+                },
+              ]}
+            >
+              <Text style={{ color: "white" }}>Submit</Text>
+            </View>
+          </TouchableOpacity>
         </>
       )}
     </>

@@ -12,18 +12,11 @@ import {
 import AccountSetting from "./AccountSetting";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import firebase from "firebase/compat";
-import { doc } from "firebase/firestore";
-import { db } from "../firebase";
+import { getDoc } from "firebase/firestore";
 
-export default async function Profile() {
+export default function Profile() {
   const navigation = useNavigation();
   const route = useRoute();
-
-  // User Profile
-  const docRef = doc(db, "users", firebase.auth().currentUser.uid);
-  const docSnap = await getDoc(docRef);
-  docSnap.data();
-
   return (
     <ScrollView style={{ paddingTop: 50, flex: 1 }}>
       <View style={{ paddingHorizontal: 20 }}>
@@ -93,7 +86,8 @@ export default async function Profile() {
             ]}
           >
             {/* Name here */}
-            {firebase.auth().currentUser.displayName}
+            {/* {firebase.auth().currentUser.uid} */}
+            Krennt Craven A. Villalon
           </Text>
           <Text style={styles1.setFontSizeOne}>Location</Text>
         </View>
