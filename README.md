@@ -1,5 +1,8 @@
 # Sagip ☀️
 
+## 48 Hours Coding Challenge: 
+
+
 SAGIP is an adaptive solution to the insufficiency and inaccessibility of blood supply through digitalization of both blood donor and request application. Sagip also provides comprehensive educational resources, potential donors can understand the benefits of their contribution to society and themselves. 
 
 **Accessibility:** Easy access to blood donation centers through mobile application puts donors and recipients first on the line. This feature will encourage people to donate blood, and help finding and requesting directly to facilities for those in need of one. SAGIP implements a function which shows the nearest blood facility, and aids in sending blood donor/request application directly to the chosen facility. 
